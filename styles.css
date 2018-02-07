@@ -1,0 +1,65 @@
+#stats {
+	height: 150px;
+	width: 400px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: blue;
+	display: block;
+}
+
+#arena {
+	height: 200px;
+	width: 400px;
+	padding-top: 20px;
+    padding-right: 0px;
+	margin-right: 0px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: red;
+	display: block;
+}
+
+#matchPlanning {
+	height: 100px;
+	width: 400px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: violet;
+	display: block;
+}
+
+#bets {
+	height: 150px;
+	width: 400px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: gray;
+	display: block;
+}
+
+#console{
+	height: 750px;
+	width: 300px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+	display: none;
+	position: absolute;
+	left: 412px;
+	top: 10px;
+}
+
+#consoleBet{
+	height: 750px;
+	width: 400px;
+	padding-left: 5px;
+	border-style: solid;
+	border-width: 2px;
+	border-color: grey;
+	display: block;
+	position: absolute;
+	left: 420px;
+	top: 10px;
+}
