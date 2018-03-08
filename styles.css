@@ -1,65 +1,72 @@
-#stats {
-	height: 150px;
-	width: 400px;
-	border-style: solid;
-	border-width: 2px;
-	border-color: blue;
-	display: block;
+body {
+    margin: 0;
+    padding: 10px;
 }
 
-#arena {
-	height: 200px;
-	width: 400px;
-	padding-top: 20px;
-    padding-right: 0px;
-	margin-right: 0px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-	border-style: solid;
-	border-width: 2px;
-	border-color: red;
-	display: block;
+#match {
+    border: 2px solid red;
+    min-width: 100%;
+    display: inline-block;
 }
 
 #matchPlanning {
-	height: 100px;
-	width: 400px;
-	border-style: solid;
-	border-width: 2px;
-	border-color: violet;
-	display: block;
+    /*width: 400px;*/
+    display: block;
+    border-bottom: 2px solid rgba(255, 0, 0, 0.425);
+}
+
+#arena {
+    height: 200px;
+    /*width: 400px;*/
+    padding-top: 20px;
+    padding-right: 0px;
+    margin-right: 0px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    display: block;
+}
+
+#stats {
+    height: 150px;
+    width: 400px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: blue;
+    display: block;
 }
 
 #bets {
-	height: 150px;
-	width: 400px;
-	border-style: solid;
-	border-width: 2px;
-	border-color: gray;
-	display: block;
+    height: 150px;
+    width: 400px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: gray;
+    display: block;
 }
 
-#console{
-	height: 750px;
-	width: 300px;
-	border-style: solid;
-	border-width: 2px;
-	border-color: black;
-	display: none;
-	position: absolute;
-	left: 412px;
-	top: 10px;
+#console {
+    height: 750px;
+    width: 300px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    display: none;
+    position: absolute;
+    left: 412px;
+    top: 10px;
 }
 
-#consoleBet{
-	height: 750px;
-	width: 400px;
-	padding-left: 5px;
-	border-style: solid;
-	border-width: 2px;
-	border-color: grey;
-	display: block;
-	position: absolute;
-	left: 420px;
-	top: 10px;
+#consoleBet {
+    height: 750px;
+    width: 400px;
+    padding-left: 5px;
+    border-style: solid;
+    border-width: 2px;
+    border-color: grey;
+    display: block;
+    position: absolute;
+    left: 420px;
+    top: 10px;
 }
+
+s

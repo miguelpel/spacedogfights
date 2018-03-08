@@ -1,0 +1,341 @@
+@font-face {
+    font-family: gameboy;
+    src: url(fonts/GameBoy.ttf);
+}
+
+body {
+    /*background: #1D412D;*/
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #1D412D;
+    background: url('images/arena/arena3-791-480.png') no-repeat;
+    background-size: cover;
+    background-position: center bottom;
+    display: flex;
+    justify-content: center;
+    /* overflow: hidden; */
+    /*cursor: url(cursor.cur), auto;*/
+}
+
+.game-container {
+    height: 100vh;
+    width: auto;
+    max-width: 600px;
+    /* background-color: #1D412D; */
+}
+
+.gameboy {
+    /* border with dark corners */
+    font-family: gameboy;
+    background-color: #D6E894;
+    color: #1D412D;
+    border: 12px solid transparent;
+    margin: 0;
+    padding: 0;
+    -webkit-border-image: url(images/border_gb_dark.png) 12 round;
+    /* Safari 3.1-5 */
+    -o-border-image: url(images/border_gb_dark.png) 12 round;
+    /* Opera 11-12.1 */
+    border-image: url(images/border_gb_dark.png) 12 round;
+}
+
+.gamegirl {
+    /* border with clear corners */
+    font-family: gameboy;
+    background-color: #D6E894;
+    color: #1D412D;
+    border: 12px solid transparent;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+    -webkit-border-image: url(images/border_gb.png) 12 round;
+    /* Safari 3.1-5 */
+    -o-border-image: url(images/border_gb.png) 12 round;
+    /* Opera 11-12.1 */
+    border-image: url(images/border_gb.png) 12 round;
+}
+
+.line {
+    height: 15px;
+    margin: 0 0 0 0;
+    background: url('images/line_gb.png');
+}
+
+
+/* TEMPORAIRE, a précider */
+
+#arena {
+    color: #7dc53d;
+    text-align: center;
+    min-height: 20rem;
+    background: url('images/arena/arena1.png');
+    background-size: cover;
+}
+
+#stats {
+    display: none;
+}
+
+
+/* screen selectors */
+
+#selector,
+#selector ul,
+#selector li {
+    margin: 0;
+    padding: 0;
+}
+
+#selector {
+    background-color: #1D412D;
+}
+
+#selector ul {
+    list-style-type: none;
+    position: relative;
+    height: 22px;
+}
+
+#selector li {
+    width: 25%;
+    text-align: center;
+    position: absolute;
+    /* Will have to adapt the image in media queries*/
+    background-image: url('images/selector_1.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.togglebtn {
+    top: -1px;
+    cursor: default;
+    -webkit-user-select: none;
+    /* Chrome all / Safari all */
+    -moz-user-select: none;
+    /* Firefox all */
+    -ms-user-select: none;
+    /* IE 10+ */
+    user-select: none;
+    /* Likely future */
+}
+
+#togglebtn_1 {
+    /*top: -1px;*/
+    /*left: -4px;*/
+}
+
+#togglebtn_2 {
+    /*top: -1px;*/
+    left: 25%;
+}
+
+#togglebtn_3 {
+    /*top: -1px;*/
+    left: 50%;
+}
+
+#togglebtn_4 {
+    /*top: -1px;*/
+    left: 75%;
+}
+
+
+/* i will supress this later, for now,
+it helps the javascript goes*/
+
+#currentBetDiv {
+    display: none;
+}
+
+.currentBetMatch {
+    margin: 0;
+    padding: 0 0 5px 0;
+    text-align: center;
+}
+
+.currentBet {
+    margin: 5px 0;
+    padding: 0 10px;
+    display: flex;
+    /* flex-direction: row; */
+    justify-content: space-around;
+    align-items: center;
+}
+
+.betdog {
+    display: inline-block;
+    margin: 0;
+    padding: 2px;
+    border: 2px solid #1D412D;
+}
+
+.betdog:hover,
+.betdog:active,
+.betdog:focus {
+    background-color: #7dc53d;
+}
+
+.betdog p {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.betbtns {
+    display: none;
+    justify-content: space-between;
+    max-height: 72px;
+    overflow: hidden;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+button {
+    font-family: gameboy;
+    font-size: 1em;
+    width: 70px;
+    height: 52px;
+    margin: 5px 0 0 0;
+    padding: 0;
+    text-align: center;
+    color: #1D412D;
+    border: none;
+    text-decoration: none;
+    background-color: #D6E894;
+    background-image: url('images/matchbtn_gb_inactive.png');
+    background-size: cover;
+    background-position: center;
+}
+
+button:active {
+    background-image: url('images/matchbtn_gb_active.png');
+    /* This is to change the text along with the image.*/
+    padding: 4px 0 0 2px;
+}
+
+#money {
+    margin: 10px 0 0 0;
+    padding: 0;
+}
+
+.matchbtns {
+    display: none;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#console,
+#consoleBet {
+    display: none;
+}
+
+input[type=range].styledrange {
+    -webkit-appearance: none;
+    width: 99%;
+    margin: 4px 0;
+}
+
+input[type=range].styledrange:focus {
+    outline: none;
+}
+
+input[type=range].styledrange::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px #ffb2df, 0px 0px 0px #ffccea;
+    background: #1d412d;
+    border-radius: 25px;
+    border: 2.3px solid #53823e;
+}
+
+input[type=range].styledrange::-webkit-slider-thumb {
+    box-shadow: 2px 2px 0px #1d412d, 0px 0px 2px #255339;
+    border: 4px solid #7dc53d;
+    height: 16px;
+    width: 30px;
+    border-radius: 12px;
+    background: #53823e;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -6.3px;
+}
+
+input[type=range].styledrange:focus::-webkit-slider-runnable-track {
+    background: #1f452f;
+}
+
+input[type=range].styledrange::-moz-range-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    box-shadow: 0px 0px 0px #ffb2df, 0px 0px 0px #ffccea;
+    background: #1d412d;
+    border-radius: 25px;
+    border: 2.3px solid #53823e;
+}
+
+input[type=range].styledrange::-moz-range-thumb {
+    box-shadow: 2px 2px 0px #1d412d, 0px 0px 2px #255339;
+    border: 4px solid #7dc53d;
+    height: 16px;
+    width: 30px;
+    border-radius: 12px;
+    background: #53823e;
+    cursor: pointer;
+}
+
+input[type=range].styledrange::-ms-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+input[type=range].styledrange::-ms-fill-lower {
+    background: #1b3d2b;
+    border: 2.3px solid #53823e;
+    border-radius: 50px;
+    box-shadow: 0px 0px 0px #ffb2df, 0px 0px 0px #ffccea;
+}
+
+input[type=range].styledrange::-ms-fill-upper {
+    background: #1d412d;
+    border: 2.3px solid #53823e;
+    border-radius: 50px;
+    box-shadow: 0px 0px 0px #ffb2df, 0px 0px 0px #ffccea;
+}
+
+input[type=range].styledrange::-ms-thumb {
+    box-shadow: 2px 2px 0px #1d412d, 0px 0px 2px #255339;
+    border: 4px solid #7dc53d;
+    height: 16px;
+    width: 30px;
+    border-radius: 12px;
+    background: #53823e;
+    cursor: pointer;
+    height: 8px;
+}
+
+input[type=range].styledrange:focus::-ms-fill-lower {
+    background: #1d412d;
+}
+
+input[type=range].styledrange:focus::-ms-fill-upper {
+    background: #1f452f;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
