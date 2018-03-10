@@ -87,4 +87,4 @@ var match = setInterval(function() {
         document.getElementById("match_page").innerHTML = dogs[0].name + " Wins in " + round + " rounds!";
         resetMatch(dogs[0], dogs[1]);
     }
-}, 100);
+}, 200);

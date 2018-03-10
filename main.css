@@ -14,7 +14,7 @@ body {
     background-position: center bottom;
     display: flex;
     justify-content: center;
-    overflow: hidden;
+    /* overflow: hidden; */
     /*cursor: url(cursor.cur), auto;*/
 }
 
@@ -67,6 +67,8 @@ body {
 
 #arena {
     height: 22rem;
+    min-width: 50%;
+    max-width: 30rem;
 }
 
 #match_page {
