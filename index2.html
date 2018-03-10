@@ -20,6 +20,84 @@
         <!-- change the arena reference in the javascript, before
             charging all the different screens -->
         <div class="gameboy" id="arena">
+            <div class="togglediv" id="match_page"></div>
+            <div class="togglediv" id="pool_page">
+                <div id="pool_container">
+                    <div class="pool">
+                        <h3>Pool 1</h3>
+                        <div class="pool_lines"></div>
+                        <ul class="match_list">
+                            <li class="poolmatch match1" onclick="loadBet(1)">Douglas<br>Vs<br>Mistie</li>
+                            <li class="poolmatch match2" onclick="loadBet(2)">Douglas<br>Vs<br>Carl</li>
+                            <li class="poolmatch match3" onclick="loadBet(3)">Douglas<br>Vs<br>Prank</li>
+                            <li class="poolmatch match4" onclick="loadBet(4)">Mistie<br>Vs<br>Carl</li>
+                            <li class="poolmatch match5" onclick="loadBet(5)">Mistie<br>Vs<br>Prank</li>
+                            <li class="poolmatch match6" onclick="loadBet(6)">Carl<br>Vs<br>Prank</li>
+                        </ul>
+                    </div>
+                    <div class="pool">
+                        <h3>Pool 2</h3>
+                        <div class="pool_lines"></div>
+                        <ul class="match_list">
+                            <li class="poolmatch match1" onclick="loadBet(7)">Gotlib<br>Vs<br>Arthur</li>
+                            <li class="poolmatch match2" onclick="loadBet(8)">Gotlib<br>Vs<br>Laika</li>
+                            <li class="poolmatch match3" onclick="loadBet(9)">Gotlib<br>Vs<br>Hrrm</li>
+                            <li class="poolmatch match4" onclick="loadBet(10)">Arthur<br>Vs<br>Laika</li>
+                            <li class="poolmatch match5" onclick="loadBet(11)">Arthur<br>Vs<br>Hrrm</li>
+                            <li class="poolmatch match6" onclick="loadBet(12)">Laika<br>Vs<br>Hrrm</li>
+                        </ul>
+                    </div>
+                    <div class="pool">
+                        <h3>Pool 3</h3>
+                        <div class="pool_lines"></div>
+                        <ul class="match_list">
+                            <li class="poolmatch match1" onclick="loadBet(13)">Zorgator<br>Vs<br>Xhuhan</li>
+                            <li class="poolmatch match2" onclick="loadBet(14)">Zorgator<br>Vs<br>Bdah</li>
+                            <li class="poolmatch match3" onclick="loadBet(15)">Zorgator<br>Vs<br>Chloe</li>
+                            <li class="poolmatch match4" onclick="loadBet(16)">Xhuhan<br>Vs<br>Bdah</li>
+                            <li class="poolmatch match5" onclick="loadBet(17)">Xhuhan<br>Vs<br>Chloe</li>
+                            <li class="poolmatch match6" onclick="loadBet(18)">Bdah<br>Vs<br>Chloe</li>
+                        </ul>
+                    </div>
+                    <div class="pool">
+                        <h3>Pool 4</h3>
+                        <div class="pool_lines"></div>
+                        <ul class="match_list">
+                            <li class="poolmatch match1" onclick="loadBet(19)">Rant<br>Vs<br>Pi</li>
+                            <li class="poolmatch match2" onclick="loadBet(20)">Rant<br>Vs<br>MRH</li>
+                            <li class="poolmatch match3" onclick="loadBet(21)">Rant<br>Vs<br>Heinlein</li>
+                            <li class="poolmatch match4" onclick="loadBet(22)">Pi<br>Vs<br>MRH</li>
+                            <li class="poolmatch match5" onclick="loadBet(23)">Pi<br>Vs<br>Heinlein</li>
+                            <li class="poolmatch match6" onclick="loadBet(24)">MRH<br>Vs<br>Heinlein</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="demis-container">
+                    Demi-finals:
+                    <div class="demi" id="demi-1">
+                        <span id="demi-1-dog-1">???</span>
+                        <span> Vs </span>
+                        <span id="demi-1-dog-2">???</span>
+                    </div>
+                    <div class="demi" id="demi-2">
+                        <span id="demi-2-dog-1">???</span>
+                        <span> Vs </span>
+                        <span id="demi-2-dog-2">???</span>
+                    </div>
+                </div>
+                <div id="final-container">
+                    Final:
+                    <div class="final">
+                        <span id="final-dog-1">douglas</span>
+                        <span> Vs </span>
+                        <span id="final-dog-2">mistie</span>
+                    </div>
+                </div>
+            </div>
+            <div class="togglediv" id="bets_page">
+                <div id="betJournal">
+                </div>
+            </div>
         </div>
         <div class="gameboy" id="selector">
             <!--<div id="menu">-->
@@ -39,20 +117,20 @@
             <div id="betcontroller">
                 <div class="currentBetMatch">Match: 5</div>
                 <div class="currentBet">
-                    <div class="betdog">
-                        <p class="betdogname" id="betdogname1">douglas</p>
-                        <p class="betdogodds" id="betdogodds1">odds: 1.85</p>
+                    <div class="betdog" onclick="placeBetOnDog(0)">
+                        <p class="betdogname" id="betdogname1"></p>
+                        <p class="betdogodds" id="betdogodds1"></p>
                     </div>
                     <span> Vs </span>
-                    <div class="betdog">
-                        <p class="betdogname" id="betdogname2">mistie</p>
-                        <p class="betdogodds" id="betdogodds2">odds: 1.50</p>
+                    <div class="betdog" onclick="placeBetOnDog(1)">
+                        <p class="betdogname" id="betdogname2"></p>
+                        <p class="betdogodds" id="betdogodds2"></p>
                     </div>
                 </div>
                 <input class="styledrange" type="range" name="amount" id="moneyBet" min="1" max="100" step="1">
-                <div><span id="currentMoneyBet">bet: 1 kopec</span><span id="betdogname"> on douglas</span> </div>
+                <div><span id="currentMoneyBet">bet: 1 kopec</span><span id="betdogname"></span> </div>
                 <div class="button">
-                    <button type="button" id="bet" onclick="placeBet(activeBet)">Bet</button>
+                    <button type="button" id="bet" onclick="confirmBet()">Bet</button>
                 </div>
             </div>
             <div class="gamegirl" id="money">
@@ -70,7 +148,6 @@
                 <button class="matchbtn" type="button" id="nextMatchBet" onclick="setNextBet()">Next Match</button>
             </div>
         </div>
-    </div>
     </div>
     <div class="gameboy" id="console">
         <div class="gamegirl" id="consolePools"></div>

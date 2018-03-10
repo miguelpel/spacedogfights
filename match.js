@@ -17,8 +17,9 @@ var currentPool = 0;
 var championships = 1;
 // MatchCount starts at 0 !!!
 // You'll change that.
-var matchCount = 0;
+var matchCount = 1;
 displayNextMatches();
+displayThePools();
 
 var bets = [];
 var currentBet = 0;
@@ -45,9 +46,9 @@ var match = setInterval(function() {
     	displayResults();
     	clearInterval(match);
     };*/
-    if (round === 0 && matchCount !== 26) closeBet(matchCount);
-    if (matchCount === 26 && count >= 0) {
-        document.getElementById("arena").innerHTML = "";
+    if (round === 0 && matchCount !== 27) closeBet(matchCount);
+    if (matchCount === 27 && count >= 0) {
+        document.getElementById("match_page").innerHTML = "";
         document.getElementById("stats").innerHTML = "Final match: " + chenil[finalMatch[0]].name + " Vs " + chenil[finalMatch[1]].name + "<br>";
         document.getElementById("stats").innerHTML += "Place your bets!!! " + count;
         //displayMatcheInfos();
@@ -62,11 +63,11 @@ var match = setInterval(function() {
     displayMatcheInfos();
 
     if (dogs[0].life > 0 && dogs[1].life > 0) {
-        if (document.getElementById("arena").innerHTML.length === 0) {
+        if (document.getElementById("match_page").innerHTML.length === 0) {
             round += 1;
-            document.getElementById("arena").innerHTML = "";
-            document.getElementById("arena").innerHTML = "Round " + round;
-        } else if (document.getElementById("arena").innerHTML.length === 7 || document.getElementById("arena").innerHTML.length === 8) {
+            document.getElementById("match_page").innerHTML = "";
+            document.getElementById("match_page").innerHTML = "Round " + round;
+        } else if (document.getElementById("match_page").innerHTML.length === 7 || document.getElementById("match_page").innerHTML.length === 8) {
             if (turn == 0) {
                 turn = 1;
                 attack(dogs[0], dogs[1]);
@@ -75,15 +76,15 @@ var match = setInterval(function() {
                 attack(dogs[1], dogs[0]);
             }
         } else {
-            document.getElementById("arena").innerHTML = "";
+            document.getElementById("match_page").innerHTML = "";
         }
     } else if (dogs[0].life === 0) {
-        document.getElementById("arena").innerHTML = dogs[1].name + " Wins in " + round + " rounds!";
+        document.getElementById("match_page").innerHTML = dogs[1].name + " Wins in " + round + " rounds!";
         //closeBet(matchCount);
         //displayBetList();
         resetMatch(dogs[1], dogs[0]);
     } else if (dogs[1].life == 0) {
-        document.getElementById("arena").innerHTML = dogs[0].name + " Wins in " + round + " rounds!";
+        document.getElementById("match_page").innerHTML = dogs[0].name + " Wins in " + round + " rounds!";
         //closeBet(matchCount);
         //displayBetList();
         resetMatch(dogs[0], dogs[1]);
