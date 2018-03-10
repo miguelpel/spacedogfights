@@ -151,6 +151,7 @@ body {
     margin: 0 0 0 10px;
     border: 4px solid #1D412D;
     text-align: center;
+    background-color: #53823E;
 }
 
 .demi:hover {
@@ -172,14 +173,48 @@ body {
     text-align: center;
     padding: 8px;
     border: 2px solid #1D412D;
+    background-color: #53823E;
 }
 
 .final:hover {
     background-color: #7DC53D;
 }
 
+
+/* the clickable class is to shov that the
+match is now clickable*/
+
+.clickable {
+    background-color: #D6E894;
+}
+
+.clickable:hover {
+    background-color: #7DC53D;
+}
+
 #stats {
     display: none;
+}
+
+
+/* BET PAGE */
+
+#bets_page {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#betJournal {
+    /* here find a way to hide the scrolling bar */
+    height: 18rem;
+    font-size: 0.8rem;
+}
+
+#winning {
+    font-size: 0.8rem;
+    width: 95%;
+    height: 1rem;
 }
 
 
@@ -250,7 +285,7 @@ it helps the javascript goes*/
     display: none;
 }
 
-.currentBetMatch {
+#currentBetMatch {
     margin: 0;
     padding: 0 0 5px 0;
     text-align: center;

@@ -59,13 +59,35 @@ function setNextsMatches() {
     if (demiFinals[0] && demiFinals[1]) {
         demiFinalMatches[0] = [demiFinals[0], demiFinals[1]];
         nexts.push(demiFinalMatches[0]);
+        // activate the first demi-final
+        var demi1 = document.getElementById("demi-1");
+        demi1.addEventListener('click', function() {
+            loadBet(25)
+        })
+        demi1.classList.add("clickable");
+
+        // dogDivs[dog].classList.add("active");
+        // dogDivs[dog].classList.remove("active");
     }
     if (demiFinals[2] && demiFinals[3]) {
         demiFinalMatches[1] = [demiFinals[2], demiFinals[3]];
         nexts.push(demiFinalMatches[1]);
+        var demi2 = document.getElementById("demi-2");
+        demi2.addEventListener('click', function() {
+            loadBet(26)
+        })
+        demi2.classList.add("clickable");
+
+
+        // activate the second demi-final
     }
     if (finalMatch[1]) {
         nexts.push(finalMatch);
+        var fnl = document.getElementById("final");
+        fnl.addEventListener('click', function() {
+            loadBet(27)
+        })
+        fnl.classList.add("clickable");
     }
     return nexts;
 };
@@ -126,12 +148,15 @@ function changeDogs() {
 
 function resetChampionship() {
     if (playerMoney === 0) {
-        playerMoney = 100.00;
+        playerMoney = 10.00;
         var amount = 1;
         displayMoney();
     };
     championships += 1;
     document.getElementById("final-container").style.display = 'none';
+    document.getElementById("demi-1").classList.remove("clickable");
+    document.getElementById("demi-2").classList.remove("clickable");
+    document.getElementById("final").classList.remove("clickable");
     pools = shufflePools();
     poolMatches = setPoolMatches(pools);
     displayPools();
@@ -397,6 +422,8 @@ function setPrevBet() {
 };
 
 function setNextBet() {
+    // you have to be clear if it's currentBet + 1 or not:
+    // depends on WHEN the currentBet is changed!!!
     if (betList[currentBet + 1]) {
         // currentBet++;
         document.getElementById('betdogname1').innerHTML = chenil[betList[currentBet][0]].name;
@@ -420,19 +447,63 @@ function loadBet(matchNbr) {
     // here's what we'll do: we'll get rid of the currentBet
     // chenil is zero indexed too
     eraseBet();
+    // It's here that we allow or not a bet to be loaded
+    // implement for the demi-finals and finals
     var ct = matchNbr - matchCount - 1;
     if (ct >= 0) {
         // here's the test: you have to make the REAL names
         // of the dogs from betList[0] appear here
-        currentBet = ct;
-        // if it happens that ct is less than zero
-        // the betList[ct] will not work at all
-        document.getElementById('betdogname1').innerHTML = chenil[betList[currentBet][0]].name;
-        document.getElementById('betdogodds1').innerHTML = "odds: " + chenil[betList[currentBet][0]].odd;
-        document.getElementById('betdogname2').innerHTML = chenil[betList[currentBet][1]].name;
-        document.getElementById('betdogodds2').innerHTML = "odds: " + chenil[betList[currentBet][1]].odd;
-        displayBetList();
-        displayCurrentBet();
+        if (matchNbr < 25) {
+            currentBet = ct;
+            // if it happens that ct is less than zero
+            // the betList[ct] will not work at all
+            document.getElementById('betdogname1').innerHTML = chenil[betList[currentBet][0]].name;
+            document.getElementById('betdogodds1').innerHTML = "odds: " + chenil[betList[currentBet][0]].odd;
+            document.getElementById('betdogname2').innerHTML = chenil[betList[currentBet][1]].name;
+            document.getElementById('betdogodds2').innerHTML = "odds: " + chenil[betList[currentBet][1]].odd;
+            displayBetList();
+            displayCurrentBet();
+        }
+        if (matchNbr == 25) {
+            // check
+            if (demi1.classList.contains("clickable")) {
+                currentBet = ct;
+                document.getElementById('betdogname1').innerHTML = chenil[betList[currentBet][0]].name;
+                document.getElementById('betdogodds1').innerHTML = "odds: " + chenil[betList[currentBet][0]].odd;
+                document.getElementById('betdogname2').innerHTML = chenil[betList[currentBet][1]].name;
+                document.getElementById('betdogodds2').innerHTML = "odds: " + chenil[betList[currentBet][1]].odd;
+                displayBetList();
+                displayCurrentBet();
+            }
+        }
+        if (matchNbr == 26) {
+            // check
+            var demi2 = document.getElementById('demi-2');
+            if (demi2.classList.contains("clickable")) {
+                currentBet = ct;
+                document.getElementById('betdogname1').innerHTML = chenil[betList[currentBet][0]].name;
+                document.getElementById('betdogodds1').innerHTML = "odds: " + chenil[betList[currentBet][0]].odd;
+                document.getElementById('betdogname2').innerHTML = chenil[betList[currentBet][1]].name;
+                document.getElementById('betdogodds2').innerHTML = "odds: " + chenil[betList[currentBet][1]].odd;
+                displayBetList();
+                displayCurrentBet();
+            }
+
+        }
+        if (matchNbr == 27) {
+            // check
+            var fnl = document.getElementById('final');
+            if (fnl.classList.contains("clickable")) {
+                currentBet = ct;
+                document.getElementById('betdogname1').innerHTML = chenil[betList[currentBet][0]].name;
+                document.getElementById('betdogodds1').innerHTML = "odds: " + chenil[betList[currentBet][0]].odd;
+                document.getElementById('betdogname2').innerHTML = chenil[betList[currentBet][1]].name;
+                document.getElementById('betdogodds2').innerHTML = "odds: " + chenil[betList[currentBet][1]].odd;
+                displayBetList();
+                displayCurrentBet();
+            }
+
+        }
     }
 };
 
