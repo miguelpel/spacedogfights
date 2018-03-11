@@ -33,10 +33,28 @@ var bets = [];
 // The currentBet refers to the matchList.
 // from 0 to 26 ZERO INDEXED!!!
 var currentbet = 0;
-
+var oddsvalues = {
+    0: [2],
+    1: [2],
+    2: [2],
+    3: [2],
+    4: [2],
+    5: [2],
+    6: [2],
+    7: [2],
+    8: [2],
+    9: [2],
+    10: [2],
+    11: [2],
+    12: [2],
+    13: [2],
+    14: [2],
+    15: [2]
+};
 
 // set the first bet
 loadBet(1);
+drawStats();
 
 // those are used for the match
 var round = 0;
@@ -46,6 +64,9 @@ var dogs = changeDogs();
 displayMatcheInfos();
 
 
+///////////////////////////
+
+///////////////////////
 //test.
 
 var match = setInterval(function() {

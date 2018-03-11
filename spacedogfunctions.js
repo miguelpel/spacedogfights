@@ -38,7 +38,6 @@ function setPoolMatches(pools) {
     }
     //add the result array to the next matches
     matchList = resultArray;
-    console.log(matchList.length);
     displayThePools();
 };
 
@@ -67,9 +66,15 @@ function checksAddMatch() {
 function resetMatch(winner, looser) {
     checkBets(matchCount, winner.id);
     winner.wins += 1;
-    winner.odd = getOdds(winner);
     winner.encounter += 1;
     looser.encounter += 1;
+    winner.odd = getOdds(winner);
+    looser.odd = getOdds(looser);
+    displayodds()
+    oddsvalues[winner.id].push(winner.odd);
+    oddsvalues[looser.id].push(looser.odd);
+    drawStats();
+
     winner.life = 100;
     looser.life = 100;
     if (matchCount < 25) {
@@ -146,6 +151,7 @@ function resetChampionship() {
     for (var j = 0; j < dogNms.length; j++) {
         dogNms[j].innerHTML = "???";
     }
+    if (championships % 2 === 0) resetoddsvalues();
     matchList = [];
     addMatch = [];
     setPoolMatches();
@@ -158,7 +164,6 @@ function resetChampionship() {
     turn = Math.floor(Math.random() * 2);
     dogs = changeDogs();
     loadBet(1);
-    document.getElementById('called').innerHTML = "";
 };
 
 // this function choose the winner of the current pool, and pushes him into the demiFinal/demiFinalMatch variables.
@@ -277,6 +282,7 @@ function getOdds(dog) {
         var percentage = Math.round((dog.wins / dog.encounter) * 100);
         var cote = 1 / (percentage / 100);
         if (cote <= 1) return 1.05;
+        if (cote >= 4) return 4;
         else return cote.toFixed(2);
     }
 };
@@ -342,8 +348,6 @@ function loadBet(betNbr) {
         document.getElementById('betdogodds1').innerHTML = "odds: " + chenil[matchList[currentBet][0]].odd;
         document.getElementById('betdogname2').innerHTML = chenil[matchList[currentBet][1]].name;
         document.getElementById('betdogodds2').innerHTML = "odds: " + chenil[matchList[currentBet][1]].odd;
-        console.log('load bet : ' + currentBet);
-        console.log('match count : ' + matchCount);
     }
 
 };
@@ -449,6 +453,12 @@ function checkBets(matchNumber, winnerNumber) {
             betJournal.removeChild(entries[j]);
         }
     }
+};
 
-
+function displayodds() {
+    var doglist = document.getElementById('dogs_list').querySelectorAll('li');
+    for (var t = 0; t < doglist.length; t++) {
+        doglist[t].innerHTML = chenil[t].name + " " + chenil[t].odd;
+    }
+    console.log('display odds called');
 };

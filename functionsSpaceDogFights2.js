@@ -97,9 +97,11 @@ function setNextsMatches() {
 function resetMatch(winner, looser) {
     checkBets(matchCount, winner.id);
     winner.wins += 1;
-    winner.odd = getOdds(winner);
     winner.encounter += 1;
     looser.encounter += 1;
+    winner.odd = getOdds(winner);
+    loser.odd = getOdds(loser);
+    displayodds();
     winner.life = 100;
     looser.life = 100;
     if (matchCount < 25) {
@@ -124,7 +126,7 @@ function resetMatch(winner, looser) {
     matchCount += 1;
     round = 0;
     turn = Math.floor(Math.random() * 2);
-    nextMatches = setNextsMatches();
+    // nextMatches = setNextsMatches();
     displayNextMatches();
     if (matchCount <= 1) displayThePools();
     closeBet(matchCount);
