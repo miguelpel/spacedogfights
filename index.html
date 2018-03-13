@@ -7,9 +7,10 @@
     <title>Space Dog Fights</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="prefixfree.min.js"></script>
     <!-- <script type="text/javascript" src="functionsSpaceDogFights2.js"></script> -->
-    <script type="text/javascript" src="spacedogfunctions.js"></script>
     <script type="text/javascript" src="chenil.js"></script>
+    <script type="text/javascript" src="spacedogfunctions.js"></script>
     <script type="text/javascript" src="toggle_pages.js"></script>
 </head>
 
@@ -21,7 +22,19 @@
         <!-- change the arena reference in the javascript, before
             charging all the different screens -->
         <div class="gameboy" id="arena">
-            <div class="togglediv" id="match_page"></div>
+            <div class="togglediv" id="match_page">
+                <div class="matchcomment_container">
+                    <div id="matchcomment"></div>
+                </div>
+                <div class="match_img">
+                    <div class="dog" id="dog1">
+                        <div class="explosion run-animation" id="expdog1"></div>
+                    </div>
+                    <div class="dog" id="dog2">
+                        <div class="explosion run-animation" id="expdog2"></div>
+                    </div>
+                </div>
+            </div>
             <div class="togglediv" id="pool_page">
                 <div id="pool_container">
                     <div class="pool">

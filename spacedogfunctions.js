@@ -74,9 +74,8 @@ function resetMatch(winner, looser) {
     oddsvalues[winner.id].push(winner.odd);
     oddsvalues[looser.id].push(looser.odd);
     drawStats();
-
-    winner.life = 100;
-    looser.life = 100;
+    winner.life = 60;
+    looser.life = 60;
     if (matchCount < 25) {
         winner.winsPools += 1;
         winner.rounds += round;
@@ -96,14 +95,17 @@ function resetMatch(winner, looser) {
         return;
     };
     checksAddMatch();
-    // matchCount +1 id here!!!
-    matchCount += 1;
-    round = 0;
-    turn = Math.floor(Math.random() * 2);
+
     if (matchCount <= 1) setPoolMatches();
 
     // document.getElementById('called').innerHTML += "CloseBet in resetMatch called!";
     dogs = changeDogs();
+    // matchCount +1 id here!!!
+    matchCount += 1;
+    round = 0;
+    countdown = 3;
+    countdownout = 5;
+    turn = Math.floor(Math.random() * 2);
     if (matchCount < 27) {
         closeBet(matchCount);
         displayMatcheInfos();
@@ -114,19 +116,27 @@ function resetMatch(winner, looser) {
         loadFinalBet();
         displayMatcheInfos();
     }
-
 };
 
 // This one changes dogs and RETURNS the dogs, and does onlt that.
 function changeDogs() {
-    if (matchList[matchCount - 1]) {
+    if (matchList[matchCount]) {
         var twoDogs = [];
-        var matching = matchList[matchCount - 1];
+        var matching = matchList[matchCount];
         twoDogs[0] = chenil[matching[0]];
         twoDogs[1] = chenil[matching[1]];
+        console.log('change dogs!');
+        console.log(document.getElementById('dog1'))
+        var imgdog1 = chenil[matching[0]].image;
+        var imgdog1 = chenil[matching[1]].image;
+        // htmlSlide.style.backgroundImage = "url(" + img + ")";
+
+
+        document.getElementById('dog1').style.backgroundImage = 'url(' + chenil[matching[0]].image + ')';
+        document.getElementById('dog2').style.backgroundImage = 'url(' + chenil[matching[1]].image + ')';
         return twoDogs;
     } else {
-        document.getElementById('match_page').innetHTML = "Something went wrong with the next Match... Doesn't exists.";
+        document.getElementById('matchcomment').innetHTML = "Something went wrong with the next Match... Doesn't exists.";
     }
 };
 
@@ -287,21 +297,30 @@ function getOdds(dog) {
     }
 };
 
-function attack(attackingDog, victim) {
+function attack(attackingDog, victim, victimdiv) {
     randomNumber = random(attackingDog) % 3;
     attackingDog.coups += 1;
+    exp = document.getElementById(victimdiv);
     if (randomNumber === 0) {
         attackingDog.lostTurn += 1;
-        document.getElementById("match_page").innerHTML += "<br><br>" + attackingDog.name + " loooses turn.";
+        document.getElementById("matchcomment").innerHTML += "<br><br>" + attackingDog.name + " loooses turn.";
     } else if (randomNumber === 1) {
         attackingDog.sAttacks += 1;
-        document.getElementById("match_page").innerHTML += "<br><br>" + attackingDog.name + " makes Super Attack!";
+        document.getElementById("matchcomment").innerHTML += "<br><br>" + attackingDog.name + " makes Super Attack!";
         victim.life -= 20;
+        exp.style.backgroundImage = 'url(images/sexplosion.png)';
+        exp.classList.remove("run-animation");
+        void exp.offsetWidth;
+        exp.classList.add("run-animation");
         if (victim.life < 0) victim.life = 0;
     } else {
-        document.getElementById("match_page").innerHTML += "<br><br>" + attackingDog.name + " attacks!";
+        document.getElementById("matchcomment").innerHTML += "<br><br>" + attackingDog.name + " attacks!";
         attackingDog.attacks += 1;
         victim.life -= 10;
+        exp.style.backgroundImage = 'url(images/explosion.png)';
+        exp.classList.remove("run-animation");
+        void exp.offsetWidth;
+        exp.classList.add("run-animation");
         if (victim.life < 0) victim.life = 0;
     }
 };

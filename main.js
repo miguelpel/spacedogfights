@@ -58,6 +58,8 @@ drawStats();
 
 // those are used for the match
 var round = 0;
+var countdown = 3;
+var countdownout = 5;
 var count = 100;
 var turn = Math.floor(Math.random() * 2);
 var dogs = changeDogs();
@@ -84,28 +86,47 @@ var match = setInterval(function() {
         if (count != 0) return;
     }
 
+    if (countdown > 0) {
+        document.getElementById("matchcomment").innerHTML = "Get Ready!!!";
+        countdown--;
+        return;
+    }
+
 
     if (dogs[0].life > 0 && dogs[1].life > 0) {
-        if (document.getElementById("match_page").innerHTML.length === 0) {
+        if (document.getElementById("matchcomment").innerHTML.length === 0) {
             round += 1;
-            document.getElementById("match_page").innerHTML = "";
-            document.getElementById("match_page").innerHTML = "Round " + round;
-        } else if (document.getElementById("match_page").innerHTML.length === 7 || document.getElementById("match_page").innerHTML.length === 8) {
+            document.getElementById("matchcomment").innerHTML = "";
+            document.getElementById("matchcomment").innerHTML = "Round " + round;
+        } else if (document.getElementById("matchcomment").innerHTML.length === 7 || document.getElementById("matchcomment").innerHTML.length === 8) {
             if (turn == 0) {
                 turn = 1;
-                attack(dogs[0], dogs[1]);
+                attack(dogs[0], dogs[1], "expdog2");
             } else {
                 turn = 0;
-                attack(dogs[1], dogs[0]);
+                attack(dogs[1], dogs[0], "expdog1");
             }
         } else {
-            document.getElementById("match_page").innerHTML = "";
+            document.getElementById("matchcomment").innerHTML = "";
         }
     } else if (dogs[0].life === 0) {
-        document.getElementById("match_page").innerHTML = dogs[1].name + " Wins in " + round + " rounds!";
+        document.getElementById("matchcomment").innerHTML = dogs[1].name + " Wins in " + round + " rounds!";
+        // again use the countdown
+        // image burnt.
+        document.getElementById('dog1').style.backgroundImage = 'url(images/dogs/desintegrated.png)';
+        if (countdownout > 0) {
+            countdownout--;
+            return;
+        }
         resetMatch(dogs[1], dogs[0]);
-    } else if (dogs[1].life == 0) {
-        document.getElementById("match_page").innerHTML = dogs[0].name + " Wins in " + round + " rounds!";
+
+    } else if (dogs[1].life === 0) {
+        document.getElementById("matchcomment").innerHTML = dogs[0].name + " Wins in " + round + " rounds!";
+        document.getElementById('dog2').style.backgroundImage = 'url(images/dogs/desintegrated.png)';
+        if (countdownout > 0) {
+            countdownout--;
+            return;
+        }
         resetMatch(dogs[0], dogs[1]);
     }
-}, 200);
+}, 500);
