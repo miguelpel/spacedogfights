@@ -58,7 +58,7 @@ drawStats();
 
 // those are used for the match
 var round = 0;
-var countdown = 3;
+var countdown = 5;
 var countdownout = 5;
 var count = 100;
 var turn = Math.floor(Math.random() * 2);

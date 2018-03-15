@@ -103,7 +103,7 @@ function resetMatch(winner, looser) {
     // matchCount +1 id here!!!
     matchCount += 1;
     round = 0;
-    countdown = 3;
+    countdown = 5;
     countdownout = 5;
     turn = Math.floor(Math.random() * 2);
     if (matchCount < 27) {
@@ -170,6 +170,8 @@ function resetChampionship() {
     bets = [];
     currentbet = 0;
     round = 0;
+    countdown = 5;
+    countdownout = 5;
     count = 100;
     turn = Math.floor(Math.random() * 2);
     dogs = changeDogs();
