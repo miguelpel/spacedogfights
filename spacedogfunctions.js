@@ -1,6 +1,3 @@
-// Comment!!!
-
-
 // Returns an array of 4 arrays containing 4 number between 0 and 15 shuffled.
 // returns the id number of the dogs
 function shufflePools() {
@@ -41,8 +38,8 @@ function setPoolMatches(pools) {
     displayThePools();
 };
 
-// Query the pools variable, the demifinals variable, and the final variable. returns all the nexts matches that are known.
-// !!! demiFinals needs to be at format [[,],[,]] and the first demi final match set.
+// Query the addMatch, to see if there's a couple yet.
+// if there is, pushes the couple into the next matches
 
 function checksAddMatch() {
     if (addMatch[1]) {
@@ -61,7 +58,7 @@ function checksAddMatch() {
     }
 };
 
-// reset match !!! In this function, decide when to find pool winner!!!
+// reset match. In this function, decide when to find pool winner!!!
 // reset the variables.
 function resetMatch(winner, looser) {
     checkBets(matchCount, winner.id);
@@ -73,14 +70,13 @@ function resetMatch(winner, looser) {
     displayodds()
     oddsvalues[winner.id].push(winner.odd);
     oddsvalues[looser.id].push(looser.odd);
-    drawStats();
     winner.life = 60;
     looser.life = 60;
     if (matchCount < 25) {
         winner.winsPools += 1;
         winner.rounds += round;
     }
-    if (matchCount > 0 && matchCount < 25 && matchCount % 6 === 0) {
+    if (matchCount > 5 && matchCount < 25 && matchCount % 6 === 0) {
         findWinner(currentPool);
         currentPool += 1;
     }
@@ -95,43 +91,30 @@ function resetMatch(winner, looser) {
         return;
     };
     checksAddMatch();
-
-    if (matchCount <= 1) setPoolMatches();
-
-    // document.getElementById('called').innerHTML += "CloseBet in resetMatch called!";
-    dogs = changeDogs();
-    // matchCount +1 id here!!!
     matchCount += 1;
+    dogs = changeDogs();
     round = 0;
-    countdown = 5;
+    countdown = 10;
     countdownout = 5;
     turn = Math.floor(Math.random() * 2);
-    if (matchCount < 27) {
-        closeBet(matchCount);
-        displayMatcheInfos();
-    }
-    if (matchCount === 27) {
-        closeBet(matchCount);
-        currentBet = 26;
-        loadFinalBet();
-        displayMatcheInfos();
-    }
+    displayMatcheInfos();
 };
 
 // This one changes dogs and RETURNS the dogs, and does onlt that.
 function changeDogs() {
+    console.log('change dogs.');
+    console.log('matchCount: ' + matchCount);
+    console.log('dog 1: ' + chenil[matchList[matchCount][0]].name);
+    console.log('dog 2: ' + chenil[matchList[matchCount][1]].name);
+    console.log('currentBet: ' + currentBet);
+
     if (matchList[matchCount]) {
         var twoDogs = [];
-        var matching = matchList[matchCount];
+        var matching = matchList[matchCount - 1];
         twoDogs[0] = chenil[matching[0]];
         twoDogs[1] = chenil[matching[1]];
-        console.log('change dogs!');
-        console.log(document.getElementById('dog1'))
         var imgdog1 = chenil[matching[0]].image;
         var imgdog1 = chenil[matching[1]].image;
-        // htmlSlide.style.backgroundImage = "url(" + img + ")";
-
-
         document.getElementById('dog1').style.backgroundImage = 'url(' + chenil[matching[0]].image + ')';
         document.getElementById('dog2').style.backgroundImage = 'url(' + chenil[matching[1]].image + ')';
         return twoDogs;
@@ -170,7 +153,7 @@ function resetChampionship() {
     bets = [];
     currentbet = 0;
     round = 0;
-    countdown = 5;
+    countdown = 10;
     countdownout = 5;
     count = 100;
     turn = Math.floor(Math.random() * 2);
@@ -205,7 +188,6 @@ function findWinner(poolnbr) {
                 return +1;
             } else if (chenil[x].rounds === chenil[y].rounds) {
                 var coin = Math.floor(Math.random() * 2);
-                document.getElementById("console").innerHTML += "<br>coin: " + coin + "<br>";
                 return (coin > 0) ? -1 : +1;
             }
         }
@@ -230,7 +212,7 @@ function findWinner(poolnbr) {
 
 function closeBet(fromCurrentMatchIncluded) {
     // add a condition
-    // Close Bet is cosmetic, actually.
+    closedBet = matchCount;
     if (fromCurrentMatchIncluded < 25) {
         var poolMatches = document.querySelectorAll('.poolmatch');
         poolMatches[matchCount - 1].classList.add("inactive");
@@ -249,11 +231,9 @@ function closeBet(fromCurrentMatchIncluded) {
     // currentBet is zero based.
     // matchCount is 1 based.
     // currentBet is always equal to zero if we're with the next bet playing
-    if (currentBet <= matchCount && matchCount !== 26) {
+    if (currentBet <= fromCurrentMatchIncluded && matchCount !== 26) {
         setNextBet();
     };
-
-
 
     //document.getElementById('called').innerHTML += "closeBet called!";
 };
@@ -346,43 +326,35 @@ function displayMoney() {
 };
 
 function setNextBet() {
-    // currentBet toujours supérieur ou égal à matchCount
-    // ET strictement inférieur à matchList.length
-    if (currentBet < matchList.length) {
-        // ok, we're in the scope.
-        // now, setNextBet works only if currentBet is equal to matchCount
-        if (currentBet < matchCount && matchCount !== 26) {
-            currentBet = matchCount;
-            loadBet(currentBet);
-        }
+    // first check if it's possible to set the next bet
+    // then check if it's needed to set the next bet
+    // (meaning, the currentBet is equal to the matchCount)
+    if (currentBet <= matchList.length && currentbet <= matchCount) {
+        currentBet++;
+        loadBet(currentBet);
     }
 };
 
 
 function loadBet(betNbr) {
-    if (betNbr >= matchCount && betNbr < matchList.length) {
-        // we're in the scope.
-        eraseBet();
-        currentBet = betNbr;
-        document.getElementById('currentBetMatch').innerHTML = "Match : " + (currentBet + 1);
-        document.getElementById('betdogname1').innerHTML = chenil[matchList[currentBet][0]].name;
-        document.getElementById('betdogodds1').innerHTML = "odds: " + chenil[matchList[currentBet][0]].odd;
-        document.getElementById('betdogname2').innerHTML = chenil[matchList[currentBet][1]].name;
-        document.getElementById('betdogodds2').innerHTML = "odds: " + chenil[matchList[currentBet][1]].odd;
+    // betNbr is 0 indexed, same as currentBet,
+    // but not as matchCount, which is 1-indexed
+    if (betNbr === 26 && matchCount === 26) {
+        disallowBets();
     }
-
-};
-
-function loadFinalBet() {
-    document.getElementById('bet').style.visibility = 'visible';
-    eraseBet();
-    document.getElementById('currentBetMatch').innerHTML = "Final Match";
-    document.getElementById('betdogname1').innerHTML = chenil[matchList[currentBet][0]].name;
-    document.getElementById('betdogodds1').innerHTML = "odds: " + chenil[matchList[currentBet][0]].odd;
-    document.getElementById('betdogname2').innerHTML = chenil[matchList[currentBet][1]].name;
-    document.getElementById('betdogodds2').innerHTML = "odds: " + chenil[matchList[currentBet][1]].odd;
-    console.log('load final bet : ' + currentBet);
-    console.log('match count : ' + matchCount);
+    if (betNbr >= closedBet && betNbr < matchList.length) {
+        // we're in the scope.
+        if (betNbr >= closedBet) {
+            eraseBet();
+            currentBet = betNbr;
+            document.getElementById('currentBetMatch').innerHTML = "Bet for Match : " + (currentBet + 1);
+            document.getElementById('betdogname1').innerHTML = chenil[matchList[currentBet][0]].name;
+            document.getElementById('betdogodds1').innerHTML = "odds: " + chenil[matchList[currentBet][0]].odd;
+            document.getElementById('betdogname2').innerHTML = chenil[matchList[currentBet][1]].name;
+            document.getElementById('betdogodds2').innerHTML = "odds: " + chenil[matchList[currentBet][1]].odd;
+            document.getElementById('bet').style.visibility = 'visible';
+        } else return;
+    } else return;
 };
 
 function changeAmountHandler(event) {
@@ -396,13 +368,15 @@ function actualizeAmount() {
 };
 
 function placeBetOnDog(dog) {
+    eraseBet();
     // check that the dog is accessible
     if (chenil[matchList[currentBet][dog]]) {
+        /* load The dog, attach the class,
+        wait for contirmation */
         var dogDivs = document.querySelectorAll('.betdog');
         dogDivs[dog].classList.add("active");
         document.getElementById("betdogname").innerHTML = " on " + chenil[matchList[currentBet][dog]].name;
-        /* load The dog, attach the class,
-        wait for contirmation */
+
     }
 }
 
@@ -414,6 +388,16 @@ function eraseBet() {
         dogDivs[i].classList.remove("active");
     }
     document.getElementById("betdogname").innerHTML = " on...";
+}
+
+function disallowBets() {
+    eraseBet();
+    document.getElementById('currentBetMatch').innerHTML = "";
+    document.getElementById('betdogname1').innerHTML = "";
+    document.getElementById('betdogodds1').innerHTML = "";
+    document.getElementById('betdogname2').innerHTML = "";
+    document.getElementById('betdogodds2').innerHTML = "";
+    document.getElementById('bet').style.visibility = 'hidden';
 }
 
 function confirmBet() {
@@ -443,7 +427,7 @@ function confirmBet() {
             // this id will help us to erase it
             // when the match is passed.
             entry.setAttribute("id", ("" + presentBet[1]));
-            var html = "Bet for Match: " + presentBet[1] + " Winner: " + chenil[presentBet[2]].name + " kopecs: " + presentBet[3] + " att odds: " + presentBet[4] + "<br>";
+            var html = "Bet for Match: " + presentBet[1] + "// Winner: " + chenil[presentBet[2]].name + "// kopecs: " + presentBet[3] + " att odds: " + presentBet[4] + "<br>";
             entry.innerHTML = html;
             betJournal.appendChild(entry);
             console.log(entry.id);
@@ -477,9 +461,8 @@ function checkBets(matchNumber, winnerNumber) {
 };
 
 function displayodds() {
-    var doglist = document.getElementById('dogs_list').querySelectorAll('li');
+    var doglist = document.getElementById('stats_container').querySelectorAll('li');
     for (var t = 0; t < doglist.length; t++) {
-        doglist[t].innerHTML = chenil[t].name + " " + chenil[t].odd;
+        doglist[t].innerHTML = chenil[t].name + "<br> odds: " + chenil[t].odd;
     }
-    console.log('display odds called');
 };

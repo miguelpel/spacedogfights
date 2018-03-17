@@ -30,24 +30,19 @@ window.onload = function() {
     btn1.addEventListener('click', function() {
         selectDiv(1);
         btn1.style.top = '2px';
-        console.log(1);
     });
     btn2.addEventListener('click', function() {
         selectDiv(2);
         btn2.style.top = '2px';
-        console.log(1);
     });
     btn3.addEventListener('click', function() {
         selectDiv(3);
         btn3.style.top = '2px';
-        console.log(1);
     });
     btn4.addEventListener('click', function() {
         selectDiv(4);
         btn4.style.top = '2px';
-        console.log(1);
     });
     startSlide();
 
-    // startStreamTicker();
 }

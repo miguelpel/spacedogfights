@@ -10,6 +10,7 @@
     <script src="prefixfree.min.js"></script>
     <!-- <script type="text/javascript" src="functionsSpaceDogFights2.js"></script> -->
     <script type="text/javascript" src="chenil.js"></script>
+    <script type="text/javascript" src="ressources/chenildex.js"></script>
     <script type="text/javascript" src="spacedogfunctions.js"></script>
     <script type="text/javascript" src="toggle_pages.js"></script>
 </head>
@@ -22,15 +23,15 @@
         <!-- change the arena reference in the javascript, before
             charging all the different screens -->
         <div class="gameboy" id="arena">
-            <div class="togglediv" id="match_page">
+            <div class="togglediv" id="match_page" onclick="loadBet(matchCount-1)">
                 <div class="matchcomment_container">
                     <div id="matchcomment"></div>
                 </div>
                 <div class="match_img">
-                    <div class="dog" id="dog1">
+                    <div class="dog" id="dog1" onclick="placeBetOnDog(0)">
                         <div class="explosion run-animation" id="expdog1"></div>
                     </div>
-                    <div class="dog" id="dog2">
+                    <div class="dog" id="dog2" onclick="placeBetOnDog(1)">
                         <div class="explosion run-animation" id="expdog2"></div>
                     </div>
                 </div>
@@ -41,48 +42,48 @@
                         <h3>Pool 1</h3>
                         <div class="pool_lines"></div>
                         <ul class="match_list">
-                            <li class="poolmatch match1" onclick="loadBet(0)">Douglas<br>Vs<br>Mistie</li>
-                            <li class="poolmatch match2" onclick="loadBet(1)">Douglas<br>Vs<br>Carl</li>
-                            <li class="poolmatch match3" onclick="loadBet(2)">Douglas<br>Vs<br>Prank</li>
-                            <li class="poolmatch match4" onclick="loadBet(3)">Mistie<br>Vs<br>Carl</li>
-                            <li class="poolmatch match5" onclick="loadBet(4)">Mistie<br>Vs<br>Prank</li>
-                            <li class="poolmatch match6" onclick="loadBet(5)">Carl<br>Vs<br>Prank</li>
+                            <li class="poolmatch match1" onclick="loadBet(0)"><br>Vs<br></li>
+                            <li class="poolmatch match2" onclick="loadBet(1)"><br>Vs<br></li>
+                            <li class="poolmatch match3" onclick="loadBet(2)"><br>Vs<br></li>
+                            <li class="poolmatch match4" onclick="loadBet(3)"><br>Vs<br></li>
+                            <li class="poolmatch match5" onclick="loadBet(4)"><br>Vs<br></li>
+                            <li class="poolmatch match6" onclick="loadBet(5)"><br>Vs<br></li>
                         </ul>
                     </div>
                     <div class="pool">
                         <h3>Pool 2</h3>
                         <div class="pool_lines"></div>
                         <ul class="match_list">
-                            <li class="poolmatch match1" onclick="loadBet(6)">Gotlib<br>Vs<br>Arthur</li>
-                            <li class="poolmatch match2" onclick="loadBet(7)">Gotlib<br>Vs<br>Laika</li>
-                            <li class="poolmatch match3" onclick="loadBet(8)">Gotlib<br>Vs<br>Hrrm</li>
-                            <li class="poolmatch match4" onclick="loadBet(9)">Arthur<br>Vs<br>Laika</li>
-                            <li class="poolmatch match5" onclick="loadBet(10)">Arthur<br>Vs<br>Hrrm</li>
-                            <li class="poolmatch match6" onclick="loadBet(11)">Laika<br>Vs<br>Hrrm</li>
+                            <li class="poolmatch match1" onclick="loadBet(6)"><br>Vs<br></li>
+                            <li class="poolmatch match2" onclick="loadBet(7)"><br>Vs<br></li>
+                            <li class="poolmatch match3" onclick="loadBet(8)"><br>Vs<br></li>
+                            <li class="poolmatch match4" onclick="loadBet(9)"><br>Vs<br></li>
+                            <li class="poolmatch match5" onclick="loadBet(10)"><br>Vs<br></li>
+                            <li class="poolmatch match6" onclick="loadBet(11)"><br>Vs<br></li>
                         </ul>
                     </div>
                     <div class="pool">
                         <h3>Pool 3</h3>
                         <div class="pool_lines"></div>
                         <ul class="match_list">
-                            <li class="poolmatch match1" onclick="loadBet(12)">Zorgator<br>Vs<br>Xhuhan</li>
-                            <li class="poolmatch match2" onclick="loadBet(13)">Zorgator<br>Vs<br>Bdah</li>
-                            <li class="poolmatch match3" onclick="loadBet(14)">Zorgator<br>Vs<br>Chloe</li>
-                            <li class="poolmatch match4" onclick="loadBet(15)">Xhuhan<br>Vs<br>Bdah</li>
-                            <li class="poolmatch match5" onclick="loadBet(16)">Xhuhan<br>Vs<br>Chloe</li>
-                            <li class="poolmatch match6" onclick="loadBet(17)">Bdah<br>Vs<br>Chloe</li>
+                            <li class="poolmatch match1" onclick="loadBet(12)"><br>Vs<br></li>
+                            <li class="poolmatch match2" onclick="loadBet(13)"><br>Vs<br></li>
+                            <li class="poolmatch match3" onclick="loadBet(14)"><br>Vs<br></li>
+                            <li class="poolmatch match4" onclick="loadBet(15)"><br>Vs<br></li>
+                            <li class="poolmatch match5" onclick="loadBet(16)"><br>Vs<br></li>
+                            <li class="poolmatch match6" onclick="loadBet(17)"><br>Vs<br></li>
                         </ul>
                     </div>
                     <div class="pool">
                         <h3>Pool 4</h3>
                         <div class="pool_lines"></div>
                         <ul class="match_list">
-                            <li class="poolmatch match1" onclick="loadBet(18)">Rant<br>Vs<br>Pi</li>
-                            <li class="poolmatch match2" onclick="loadBet(19)">Rant<br>Vs<br>MRH</li>
-                            <li class="poolmatch match3" onclick="loadBet(20)">Rant<br>Vs<br>Heinlein</li>
-                            <li class="poolmatch match4" onclick="loadBet(21)">Pi<br>Vs<br>MRH</li>
-                            <li class="poolmatch match5" onclick="loadBet(22)">Pi<br>Vs<br>Heinlein</li>
-                            <li class="poolmatch match6" onclick="loadBet(23)">MRH<br>Vs<br>Heinlein</li>
+                            <li class="poolmatch match1" onclick="loadBet(18)"><br>Vs<br></li>
+                            <li class="poolmatch match2" onclick="loadBet(19)"><br>Vs<br></li>
+                            <li class="poolmatch match3" onclick="loadBet(20)"><br>Vs<br></li>
+                            <li class="poolmatch match4" onclick="loadBet(21)"><br>Vs<br></li>
+                            <li class="poolmatch match5" onclick="loadBet(22)"><br>Vs<br></li>
+                            <li class="poolmatch match6" onclick="loadBet(23)"><br>Vs<br></li>
                         </ul>
                     </div>
                 </div>
@@ -117,25 +118,25 @@
                 <p class="gamegirl" id="winning"></p>
             </div>
             <div class="togglediv" id="stats_page">
-                <p>Odds evolution</p>
                 <div id="stats_container">
-                    <ul id="dogs_list">
-                        <li onclick="changeactiveognumber(0)">Douglas</li>
-                        <li onclick="changeactiveognumber(1)">Mistie</li>
-                        <li onclick="changeactiveognumber(2)">Carl</li>
-                        <li onclick="changeactiveognumber(3)">Prank</li>
-                        <li onclick="changeactiveognumber(4)">Zorgator</li>
-                        <li onclick="changeactiveognumber(5)">Xhuhan</li>
-                        <li onclick="changeactiveognumber(6)">Bdah</li>
-                        <li onclick="changeactiveognumber(7)">Chloe</li>
-                        <li onclick="changeactiveognumber(8)">Rant</li>
-                        <li onclick="changeactiveognumber(9)">Pi</li>
-                        <li onclick="changeactiveognumber(10)">MRH</li>
-                        <li onclick="changeactiveognumber(11)">Heinlein</li>
-                        <li onclick="changeactiveognumber(12)">Gotlib</li>
-                        <li onclick="changeactiveognumber(13)">Arthur</li>
-                        <li onclick="changeactiveognumber(14)">Laika</li>
-                        <li onclick="changeactiveognumber(15)">Hrrm</li>
+                    <p class="about">About the space-dog fights</p>
+                    <ul class="dogs_list">
+                        <li onclick="changeactiveognumber(0)"></li>
+                        <li onclick="changeactiveognumber(1)"></li>
+                        <li onclick="changeactiveognumber(2)"></li>
+                        <li onclick="changeactiveognumber(3)"></li>
+                        <li onclick="changeactiveognumber(4)"></li>
+                        <li onclick="changeactiveognumber(5)"></li>
+                        <li onclick="changeactiveognumber(6)"></li>
+                        <li onclick="changeactiveognumber(7)"></li>
+                        <li onclick="changeactiveognumber(8)"></li>
+                        <li onclick="changeactiveognumber(9)"></li>
+                        <li onclick="changeactiveognumber(10)"></li>
+                        <li onclick="changeactiveognumber(11)"></li>
+                        <li onclick="changeactiveognumber(12)"></li>
+                        <li onclick="changeactiveognumber(13)"></li>
+                        <li onclick="changeactiveognumber(14)"></li>
+                        <li onclick="changeactiveognumber(15)"></li>
                     </ul>
                     <canvas id="statGraph">STh</canvas>
                 </div>
@@ -147,7 +148,7 @@
                 <li class="togglebtn" id="togglebtn_1">Arena</li>
                 <li class="togglebtn" id="togglebtn_2">Pools</li>
                 <li class="togglebtn" id="togglebtn_3">Bets</li>
-                <li class="togglebtn" id="togglebtn_4">Stats</li>
+                <li class="togglebtn" id="togglebtn_4">Dogs</li>
             </ul>
             <!--</div>-->
         </div>
@@ -175,37 +176,8 @@
             </div>
             <div class="gamegirl" id="money">
             </div>
-            <!-- those divs are to be deleted.
-            They are here naow not to make javascript bug-->
-            <div id="currentBetDiv">
-            </div>
-            <div class="betbtns">
-                <button type="button" id="betOnDog1" onclick="placeBetOnDog1()">Bet on Dog1</button>
-                <button type="button" id="betOnDog2" onclick="placeBetOnDog2()">Bet on Dog2</button>
-            </div>
-            <div class="matchbtns">
-                <button class="matchbtn" type="button" id="prevMatchBet" onclick="setPrevBet()">Prev. Match</button>
-                <button class="matchbtn" type="button" id="nextMatchBet" onclick="setNextBet()">Next Match</button>
-            </div>
         </div>
     </div>
-    <div class="gameboy" id="console">
-        <div class="gamegirl" id="consolePools"></div>
-        <div class="gamegirl" id="consoleNextMatches"></div>
-        <div class="gamegirl" id="consoleDemiFinals"></div>
-        <div class="gamegirl" id="consoleFinal"></div>
-        <div class="gamegirl" id="consoleResults"></div>
-    </div>
-    <div class="gameboy" id="consoleBet">
-        <div class="gamegirl" id="betList">
-        </div>
-        <div class="gamegirl" id="currentBetIndicator">
-        </div>
-        <div class="gamegirl" id="called">
-        </div>
-    </div>
-    <!-- <script type="text/javascript" src="match.js"></script> -->
-
     <script type="text/javascript" src="stats.js"></script>
     <script type="text/javascript" src="main.js"></script>
 </body>

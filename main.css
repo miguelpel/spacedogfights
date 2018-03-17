@@ -302,26 +302,83 @@ match is now clickable*/
 
 #stats_container {
     margin: 0;
-    padding: 0;
+    padding: 2% 5%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     text-align: left;
 }
 
 #stats_container p {
-    margin: 0;
-    padding: 0;
+    border: 2px solid #1D412D;
+    margin: 0 2px;
+    padding: 2px;
+    text-align: center;
 }
 
-#dogs_list {
+.dogs_list {
     margin: 0;
-    padding: 0 0 0 3px;
+    padding: 5px 0 0 0;
     list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: stretch;
 }
 
-#dogs_list li {
-    border: 1px solid #1D412D;
+.dogs_list li {
+    border: 2px solid #1D412D;
+    height: 2rem;
+    margin: 5px 2px;
+    padding: 2px;
+    text-align: center;
+}
+
+.dogs_list li:hover,
+#stats_container p:hover {
+    background-color: #7DC53D;
+}
+
+#statGraph {
+    display: none;
+}
+
+
+/* Stats modals */
+
+.dogmodal {
+    position: relative;
+    z-index: 3;
+    height: 300px;
+    top: -200px;
+    text-align: left;
+}
+
+.dog-portrait {
+    background-color: #53823e;
+    float: left;
+    z-index: 3;
+    margin: 0 5px 0 0;
+    height: 100px;
+    width: 140px;
+    display: flex;
+    justify-content: center;
+}
+
+.close {
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    z-index: 6;
+}
+
+#graph {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
 }
 
 
@@ -594,4 +651,46 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
     /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+
+/* Desktops ------------------ */
+
+@media only screen and (min-width: 1201px) {
+    /* Add Your CSS Styling Here */
+}
+
+
+/* Old Desktops and laptops ------------------ */
+
+@media only screen and (min-width: 1025px) {
+    /* Add Your CSS Styling Here */
+}
+
+
+/* Tablets (landscape) ------------------- */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    /* Add Your CSS Styling Here */
+}
+
+
+/* Tablets (portrait) -------------------- */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    /* Add Your CSS Styling Here */
+}
+
+
+/* Smartphones (landscape) ---------------- */
+
+@media only screen and (min-width: 321px) and (max-width: 767px) {
+    /* Add Your CSS Styling Here */
+}
+
+
+/* Smartphones (portrait) ---------------- */
+
+@media only screen and (max-width: 320px) {
+    /* Add Your CSS Styling Here */
 }
