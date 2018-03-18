@@ -67,7 +67,11 @@ function resetMatch(winner, looser) {
     looser.encounter += 1;
     winner.odd = getOdds(winner);
     looser.odd = getOdds(looser);
-    displayodds()
+    displayodds();
+    ////////////////////
+    ////!!!!!!!!!!!!
+    ///////////////////
+    resetoddsvalues();
     oddsvalues[winner.id].push(winner.odd);
     oddsvalues[looser.id].push(looser.odd);
     winner.life = 60;
@@ -76,7 +80,7 @@ function resetMatch(winner, looser) {
         winner.winsPools += 1;
         winner.rounds += round;
     }
-    if (matchCount > 5 && matchCount < 25 && matchCount % 6 === 0) {
+    if (matchCount > 1 && matchCount < 25 && matchCount % 6 === 0) {
         findWinner(currentPool);
         currentPool += 1;
     }
@@ -102,13 +106,7 @@ function resetMatch(winner, looser) {
 
 // This one changes dogs and RETURNS the dogs, and does onlt that.
 function changeDogs() {
-    console.log('change dogs.');
-    console.log('matchCount: ' + matchCount);
-    console.log('dog 1: ' + chenil[matchList[matchCount][0]].name);
-    console.log('dog 2: ' + chenil[matchList[matchCount][1]].name);
-    console.log('currentBet: ' + currentBet);
-
-    if (matchList[matchCount]) {
+    if (matchList[matchCount - 1]) {
         var twoDogs = [];
         var matching = matchList[matchCount - 1];
         twoDogs[0] = chenil[matching[0]];
@@ -130,28 +128,32 @@ function resetChampionship() {
         displayMoney();
     };
     championships += 1;
-    document.getElementById("final-container").style.display = 'none';
-    document.getElementById('bet').style.visibility = 'visible';
     // get all the pools, and remove the non clickable class
     var poolMatches = document.querySelectorAll('.poolmatch');
 
     for (var i = 0; i < poolMatches.length; i++) {
         poolMatches[i].classList.remove("inactive");
     }
+    // get the demi-finals match, and set them to inactive.
+    document.getElementById("demi-1").classList.remove("clickable");
+    document.getElementById("demi-2").classList.remove("clickable");
+    // get the final container, and hide it.
+    document.getElementById("final-container").style.display = 'none';
+    document.getElementById('bet').style.visibility = 'visible';
 
     // remove the textx from demi-finals and final
     dogNms = document.querySelectorAll('.dogNm');
     for (var j = 0; j < dogNms.length; j++) {
         dogNms[j].innerHTML = "???";
     }
-    if (championships % 2 === 0) resetoddsvalues();
     matchList = [];
     addMatch = [];
     setPoolMatches();
     currentPool = 1
     matchCount = 1
     bets = [];
-    currentbet = 0;
+    currentbet = 1;
+    closedBet = 0;
     round = 0;
     countdown = 10;
     countdownout = 5;
@@ -212,30 +214,29 @@ function findWinner(poolnbr) {
 
 function closeBet(fromCurrentMatchIncluded) {
     // add a condition
-    closedBet = matchCount;
+    closedBet = fromCurrentMatchIncluded;
     if (fromCurrentMatchIncluded < 25) {
         var poolMatches = document.querySelectorAll('.poolmatch');
-        poolMatches[matchCount - 1].classList.add("inactive");
+        poolMatches[closedBet - 1].classList.add("inactive");
     }
     if (fromCurrentMatchIncluded === 25) {
         document.getElementById("demi-1").classList.remove("clickable");
     }
     if (fromCurrentMatchIncluded === 26) {
         document.getElementById('demi-2').classList.remove("clickable");
-        document.getElementById('bet').style.visibility = 'hidden';
+        /////////////////
+        // disallow bet //
+        ////////////////
     }
     if (fromCurrentMatchIncluded === 27) {
         document.getElementById("final").classList.remove("clickable");
-        document.getElementById('bet').style.visibility = 'hidden';
-    }
-    // currentBet is zero based.
-    // matchCount is 1 based.
-    // currentBet is always equal to zero if we're with the next bet playing
-    if (currentBet <= fromCurrentMatchIncluded && matchCount !== 26) {
+        /////////////////
+        // disallow bet //
+        ////////////////
+    };
+    if (currentbet <= closedBet) {
         setNextBet();
     };
-
-    //document.getElementById('called').innerHTML += "closeBet called!";
 };
 
 function displayMatcheInfos() {
@@ -326,34 +327,33 @@ function displayMoney() {
 };
 
 function setNextBet() {
-    // first check if it's possible to set the next bet
-    // then check if it's needed to set the next bet
-    // (meaning, the currentBet is equal to the matchCount)
-    if (currentBet <= matchList.length && currentbet <= matchCount) {
-        currentBet++;
-        loadBet(currentBet);
+    currentbet += 1;
+    //check if it's possible to set the next bet
+    // if not yet, disallow bets
+    if (matchList[currentbet - 1]) {
+        loadBet(currentbet);
+    } else {
+        disallowBets();
     }
 };
 
 
 function loadBet(betNbr) {
-    // betNbr is 0 indexed, same as currentBet,
-    // but not as matchCount, which is 1-indexed
-    if (betNbr === 26 && matchCount === 26) {
-        disallowBets();
+    // don't load bet if the bet is closed
+    if (betNbr <= closedBet) {
+        return
     }
-    if (betNbr >= closedBet && betNbr < matchList.length) {
+    // check id there is this match in the list
+    if (matchList[betNbr - 1]) {
         // we're in the scope.
-        if (betNbr >= closedBet) {
-            eraseBet();
-            currentBet = betNbr;
-            document.getElementById('currentBetMatch').innerHTML = "Bet for Match : " + (currentBet + 1);
-            document.getElementById('betdogname1').innerHTML = chenil[matchList[currentBet][0]].name;
-            document.getElementById('betdogodds1').innerHTML = "odds: " + chenil[matchList[currentBet][0]].odd;
-            document.getElementById('betdogname2').innerHTML = chenil[matchList[currentBet][1]].name;
-            document.getElementById('betdogodds2').innerHTML = "odds: " + chenil[matchList[currentBet][1]].odd;
-            document.getElementById('bet').style.visibility = 'visible';
-        } else return;
+        eraseBet();
+        currentbet = betNbr;
+        document.getElementById('currentBetMatch').innerHTML = "Bet for Match : " + (currentbet);
+        document.getElementById('betdogname1').innerHTML = chenil[matchList[currentbet - 1][0]].name;
+        document.getElementById('betdogodds1').innerHTML = "odds: " + chenil[matchList[currentbet - 1][0]].odd;
+        document.getElementById('betdogname2').innerHTML = chenil[matchList[currentbet - 1][1]].name;
+        document.getElementById('betdogodds2').innerHTML = "odds: " + chenil[matchList[currentbet - 1][1]].odd;
+        document.getElementById('bet').style.visibility = 'visible';
     } else return;
 };
 
@@ -370,12 +370,12 @@ function actualizeAmount() {
 function placeBetOnDog(dog) {
     eraseBet();
     // check that the dog is accessible
-    if (chenil[matchList[currentBet][dog]]) {
+    if (chenil[matchList[currentbet - 1][dog]]) {
         /* load The dog, attach the class,
         wait for contirmation */
         var dogDivs = document.querySelectorAll('.betdog');
         dogDivs[dog].classList.add("active");
-        document.getElementById("betdogname").innerHTML = " on " + chenil[matchList[currentBet][dog]].name;
+        document.getElementById("betdogname").innerHTML = " on " + chenil[matchList[currentbet - 1][dog]].name;
 
     }
 }
@@ -401,8 +401,7 @@ function disallowBets() {
 }
 
 function confirmBet() {
-    if (currentBet >= matchCount || (currentBet === 26 && matchCount === 27)) {
-        console.log('confirmed current bet number: ' + currentBet);
+    if (currentbet > closedBet) {
         // ok, we're in the scope.
         var dogDivs = document.querySelectorAll('.betdog');
         var bt = -1;
@@ -416,11 +415,8 @@ function confirmBet() {
                 playerMoney = 0;
             } else playerMoney -= amount;
             displayMoney();
-            var presentBet = [championships, (currentBet + 1), matchList[currentBet][bt], amount, chenil[matchList[currentBet][bt]].odd];
-            // this one I don't remember what is it for.
-            // if (presentBet[1] > 26) presentBet[1] = 26;
+            var presentBet = [championships, (currentbet), matchList[currentbet - 1][bt], amount, chenil[matchList[currentbet - 1][bt]].odd];
             bets.push(presentBet);
-            //setNextBet();
             var betJournal = document.getElementById('betJournal');
             var entry = document.createElement('li');
             // the entry has an id of the number of the match
@@ -433,8 +429,8 @@ function confirmBet() {
             console.log(entry.id);
             // here it may be good to display
             // automatically the bet screen
+            selectDiv(3);
         }
-        eraseBet();
     }
 }
 

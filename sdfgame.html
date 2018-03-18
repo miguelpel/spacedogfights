@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Space Dog Fights</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="prefixfree.min.js"></script>
+    <!-- <script type="text/javascript" src="functionsSpaceDogFights2.js"></script> -->
+    <script type="text/javascript" src="chenil.js"></script>
+    <script type="text/javascript" src="ressources/chenildex.js"></script>
+    <!-- <script type="text/javascript" src="toggle_pages.js"></script> -->
+</head>
+
+<body>
+    <!-- le div "arena" contiendra tout les tableaux -->
+    <div class="game-container">
+        <div class="gameboy" id="matchPlanning">
+        </div>
+        <!-- change the arena reference in the javascript, before
+            charging all the different screens -->
+        <div class="gameboy" id="arena">
+            <div class="togglediv" id="match_page" onclick="loadBet(matchCount)">
+                <div class="matchcomment_container">
+                    <div id="matchcomment"></div>
+                </div>
+                <div class="match_img">
+                    <div class="dog" id="dog1">
+                        <div class="explosion run-animation" id="expdog1"></div>
+                    </div>
+                    <div class="dog" id="dog2">
+                        <div class="explosion run-animation" id="expdog2"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="togglediv" id="pool_page">
+                <div id="pool_container">
+                    <div class="pool">
+                        <h3>Pool 1</h3>
+                        <div class="pool_lines"></div>
+                        <ul class="match_list">
+                            <li class="poolmatch match1" onclick="loadBet(1)"><br>Vs<br></li>
+                            <li class="poolmatch match2" onclick="loadBet(2)"><br>Vs<br></li>
+                            <li class="poolmatch match3" onclick="loadBet(3)"><br>Vs<br></li>
+                            <li class="poolmatch match4" onclick="loadBet(4)"><br>Vs<br></li>
+                            <li class="poolmatch match5" onclick="loadBet(5)"><br>Vs<br></li>
+                            <li class="poolmatch match6" onclick="loadBet(6)"><br>Vs<br></li>
+                        </ul>
+                    </div>
+                    <div class="pool">
+                        <h3>Pool 2</h3>
+                        <div class="pool_lines"></div>
+                        <ul class="match_list">
+                            <li class="poolmatch match1" onclick="loadBet(7)"><br>Vs<br></li>
+                            <li class="poolmatch match2" onclick="loadBet(8)"><br>Vs<br></li>
+                            <li class="poolmatch match3" onclick="loadBet(9)"><br>Vs<br></li>
+                            <li class="poolmatch match4" onclick="loadBet(10)"><br>Vs<br></li>
+                            <li class="poolmatch match5" onclick="loadBet(11)"><br>Vs<br></li>
+                            <li class="poolmatch match6" onclick="loadBet(12)"><br>Vs<br></li>
+                        </ul>
+                    </div>
+                    <div class="pool">
+                        <h3>Pool 3</h3>
+                        <div class="pool_lines"></div>
+                        <ul class="match_list">
+                            <li class="poolmatch match1" onclick="loadBet(13)"><br>Vs<br></li>
+                            <li class="poolmatch match2" onclick="loadBet(14)"><br>Vs<br></li>
+                            <li class="poolmatch match3" onclick="loadBet(15)"><br>Vs<br></li>
+                            <li class="poolmatch match4" onclick="loadBet(16)"><br>Vs<br></li>
+                            <li class="poolmatch match5" onclick="loadBet(17)"><br>Vs<br></li>
+                            <li class="poolmatch match6" onclick="loadBet(18)"><br>Vs<br></li>
+                        </ul>
+                    </div>
+                    <div class="pool">
+                        <h3>Pool 4</h3>
+                        <div class="pool_lines"></div>
+                        <ul class="match_list">
+                            <li class="poolmatch match1" onclick="loadBet(19)"><br>Vs<br></li>
+                            <li class="poolmatch match2" onclick="loadBet(20)"><br>Vs<br></li>
+                            <li class="poolmatch match3" onclick="loadBet(21)"><br>Vs<br></li>
+                            <li class="poolmatch match4" onclick="loadBet(22)"><br>Vs<br></li>
+                            <li class="poolmatch match5" onclick="loadBet(23)"><br>Vs<br></li>
+                            <li class="poolmatch match6" onclick="loadBet(24)"><br>Vs<br></li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="demis-container">
+                    Demi-finals:
+                    <div class="demi" id="demi-1" onclick="loadBet(25)">
+                        <span class="dogNm" id="demi-1-dog-1">???</span>
+                        <span> Vs </span>
+                        <span class="dogNm" id="demi-1-dog-2">???</span>
+                    </div>
+                    <div class="demi" id="demi-2" onclick="loadBet(26)">
+                        <span class="dogNm" id="demi-2-dog-1">???</span>
+                        <span> Vs </span>
+                        <span class="dogNm" id="demi-2-dog-2">???</span>
+                    </div>
+                </div>
+                <div id="final-container">
+                    Final:
+                    <div class="final" id="final" onclick="loadBet(27)">
+                        <span class="dogNm" id="final-dog-1">???</span>
+                        <span> Vs </span>
+                        <span class="dogNm" id="final-dog-2">???</span>
+                        <br>
+                        <p id="counter">00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="togglediv" id="bets_page">
+                <ul id="betJournal">
+
+                </ul>
+                <p class="gamegirl" id="winning"></p>
+            </div>
+            <div class="togglediv" id="stats_page">
+                <div id="stats_container">
+                    <p class="about">About the space-dog fights</p>
+                    <ul class="dogs_list">
+                        <li onclick="changeactiveognumber(0)"></li>
+                        <li onclick="changeactiveognumber(1)"></li>
+                        <li onclick="changeactiveognumber(2)"></li>
+                        <li onclick="changeactiveognumber(3)"></li>
+                        <li onclick="changeactiveognumber(4)"></li>
+                        <li onclick="changeactiveognumber(5)"></li>
+                        <li onclick="changeactiveognumber(6)"></li>
+                        <li onclick="changeactiveognumber(7)"></li>
+                        <li onclick="changeactiveognumber(8)"></li>
+                        <li onclick="changeactiveognumber(9)"></li>
+                        <li onclick="changeactiveognumber(10)"></li>
+                        <li onclick="changeactiveognumber(11)"></li>
+                        <li onclick="changeactiveognumber(12)"></li>
+                        <li onclick="changeactiveognumber(13)"></li>
+                        <li onclick="changeactiveognumber(14)"></li>
+                        <li onclick="changeactiveognumber(15)"></li>
+                    </ul>
+                    <canvas id="statGraph">STh</canvas>
+                </div>
+            </div>
+        </div>
+        <div class="gameboy" id="selector">
+            <!--<div id="menu">-->
+            <ul id="nav">
+                <li class="togglebtn" id="togglebtn_1">Arena</li>
+                <li class="togglebtn" id="togglebtn_2">Pools</li>
+                <li class="togglebtn" id="togglebtn_3">Bets</li>
+                <li class="togglebtn" id="togglebtn_4">Dogs</li>
+            </ul>
+            <!--</div>-->
+        </div>
+        <!-- change id from stats to next -->
+        <div class="gameboy" id="controller">
+
+            <div id="betcontroller">
+                <div id="currentBetMatch">Match: </div>
+                <div class="currentBet">
+                    <div class="betdog" onclick="placeBetOnDog(0)">
+                        <p class="betdogname" id="betdogname1"></p>
+                        <p class="betdogodds" id="betdogodds1"></p>
+                    </div>
+                    <span> Vs </span>
+                    <div class="betdog" onclick="placeBetOnDog(1)">
+                        <p class="betdogname" id="betdogname2"></p>
+                        <p class="betdogodds" id="betdogodds2"></p>
+                    </div>
+                </div>
+                <input class="styledrange" type="range" name="amount" id="moneyBet" min="1" max="100" step="1">
+                <div><span id="currentMoneyBet">bet: 1 kopec</span><span id="betdogname"></span> </div>
+                <div class="button">
+                    <button type="button" id="bet" onclick="confirmBet()">Bet</button>
+                </div>
+            </div>
+            <div class="gamegirl" id="money">
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="toggle_pages.js"></script>
+    <script type="text/javascript" src="spacedogfunctions.js"></script>
+    <script type="text/javascript" src="stats.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+</body>
+
+</html>

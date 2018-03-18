@@ -60,51 +60,52 @@ var turn = Math.floor(Math.random() * 2);
 var dogs = changeDogs();
 displayMatcheInfos();
 
-
-///////////////////////////
-
-///////////////////////
-//test.
+document.getElementById('match_page').addEventListener('click', loadBet(matchCount));
 
 var match = setInterval(function() {
-    if (countdown === 0 && round === 0) closeBet(matchCount);
+    if (countdown === 0 && round === 0) {
+        closeBet(matchCount)
+        document.getElementById("matchcomment").innerHTML = "";
+    }
     if (countdown > 0) {
         document.getElementById("matchcomment").innerHTML = "Place your bets!!!<br>" + countdown;
         countdown--;
         return;
-    }
-    if (dogs[0].life > 0 && dogs[1].life > 0) {
-        if (document.getElementById("matchcomment").innerHTML.length === 0) {
-            round += 1;
-            document.getElementById("matchcomment").innerHTML = "";
-            document.getElementById("matchcomment").innerHTML = "Round " + round;
-        } else if (document.getElementById("matchcomment").innerHTML.length === 7 || document.getElementById("matchcomment").innerHTML.length === 8) {
-            if (turn == 0) {
-                turn = 1;
-                attack(dogs[0], dogs[1], "expdog2");
+    };
+    if (countdown === 0) {
+        if (dogs[0].life > 0 && dogs[1].life > 0) {
+            if (document.getElementById("matchcomment").innerHTML.length === 0) {
+                round += 1;
+                document.getElementById("matchcomment").innerHTML = "";
+                document.getElementById("matchcomment").innerHTML = "Round " + round;
+            } else if (document.getElementById("matchcomment").innerHTML.length === 7 || document.getElementById("matchcomment").innerHTML.length === 8) {
+                if (turn == 0) {
+                    turn = 1;
+                    attack(dogs[0], dogs[1], "expdog2");
+                } else {
+                    turn = 0;
+                    attack(dogs[1], dogs[0], "expdog1");
+                }
             } else {
-                turn = 0;
-                attack(dogs[1], dogs[0], "expdog1");
+                document.getElementById("matchcomment").innerHTML = "";
             }
-        } else {
-            document.getElementById("matchcomment").innerHTML = "";
-        }
-    } else if (dogs[0].life === 0) {
-        document.getElementById("matchcomment").innerHTML = dogs[1].name + " Wins in " + round + " rounds!";
-        document.getElementById('dog1').style.backgroundImage = 'url(images/dogs/desintegrated.png)';
-        if (countdownout > 0) {
-            countdownout--;
-            return;
-        }
-        resetMatch(dogs[1], dogs[0]);
+        } else if (dogs[0].life === 0) {
+            document.getElementById("matchcomment").innerHTML = dogs[1].name + " Wins in " + round + " rounds!";
+            document.getElementById('dog1').style.backgroundImage = 'url(images/dogs/desintegrated.png)';
+            if (countdownout > 0) {
+                countdownout--;
+                return;
+            }
+            resetMatch(dogs[1], dogs[0]);
 
-    } else if (dogs[1].life === 0) {
-        document.getElementById("matchcomment").innerHTML = dogs[0].name + " Wins in " + round + " rounds!";
-        document.getElementById('dog2').style.backgroundImage = 'url(images/dogs/desintegrated.png)';
-        if (countdownout > 0) {
-            countdownout--;
-            return;
+        } else if (dogs[1].life === 0) {
+            document.getElementById("matchcomment").innerHTML = dogs[0].name + " Wins in " + round + " rounds!";
+            document.getElementById('dog2').style.backgroundImage = 'url(images/dogs/desintegrated.png)';
+            if (countdownout > 0) {
+                countdownout--;
+                return;
+            }
+            resetMatch(dogs[0], dogs[1]);
         }
-        resetMatch(dogs[0], dogs[1]);
     }
 }, 500);

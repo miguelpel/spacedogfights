@@ -38,55 +38,6 @@ ctx.lineTo(2, height);
 ctx.lineTo(width, height);
 ctx.stroke();
 
-
-function drawStats() {
-    ctx.strokeStyle = '#53823E';
-    ctx.lineWidth = 2;
-    statGraph.width = statGraph.width;
-    // clear: #D6E894;
-    // medium clear:  #7DC53D;
-    // medium dark: #53823E;
-    // dark:  #1D412D;
-    ctx.lineWidth = 2;
-    ctx.strokeStyle = '#7DC53D';
-    ctx.moveTo(0, height);
-    var i = 0;
-    var j = 21;
-    while (i <= j) {
-        ctx.moveTo(0, height - (cellDim * i));
-        ctx.lineTo(width, height - (cellDim * i));
-        i++;
-    }
-    ctx.stroke();
-    ctx.lineWidth = 4;
-    ctx.strokeStyle = '#1D412D';
-    ctx.beginPath();
-    ctx.moveTo(2, 0);
-    ctx.lineTo(2, height);
-    ctx.lineTo(width, height);
-    ctx.stroke();
-    ctx.lineWidth = 2;
-    for (dog in oddsvalues) {
-        // if (dog == activedognumber) ctx.strokeStyle = '#1D412D';
-        // else 
-        ctx.strokeStyle = '#53823E';
-        ctx.beginPath();
-        var cellLength = Math.floor(width / (5 * ((championships % 2) + 1)));
-        ctx.moveTo(4, height - (oddsvalues[dog][0] * cellDim * 5));
-        for (var k = 1; k <= oddsvalues[dog].length; k++) {
-            ctx.lineTo(cellLength * k, height - (oddsvalues[dog][k] * cellDim * 5));
-        };
-        ctx.stroke();
-        ctx.strokeStyle = '#1D412D';
-        ctx.beginPath();
-        ctx.moveTo(4, height - (oddsvalues[activedognumber][0] * cellDim * 5));
-        for (var k = 1; k <= oddsvalues[activedognumber].length; k++) {
-            ctx.lineTo(cellLength * k, height - (oddsvalues[activedognumber][k] * cellDim * 5));
-        };
-        ctx.stroke();
-    }
-};
-
 function changeactiveognumber(nbr) {
     activedognumber = nbr;
     highlightdog();
@@ -130,9 +81,7 @@ function changeactiveognumber(nbr) {
     modal.appendChild(canvas);
     var page = document.getElementById('stats_page');
     page.appendChild(modal);
-
-
-    drawStats2();
+    drawStats();
 };
 
 function discardmodal() {
@@ -141,7 +90,7 @@ function discardmodal() {
     for (var i = 0; i < mod.length; i++) page.removeChild(mod[i]);
 }
 
-function drawStats2() {
+function drawStats() {
     var statGraph = document.getElementById('graph');
     var ctx = statGraph.getContext("2d");
     var width = statGraph.width,
@@ -182,11 +131,16 @@ function resetoddsvalues() {
     // here, you really, really have to find a way to
     // have the 5 last odds!!!
     for (var l = 0; l < 16; l++) {
-        oddsvalues[l] = [];
-        oddsvalues[l].push(chenil[l].odd);
-        oddsvalues[l].push(chenil[l].odd);
+        var values = oddsvalues[l];
+        if (values.length > 5) {
+            // var cutStart = values.length - 5;
+            oddsvalues[l] = values.slice(1);
+        }
+        // oddsvalues[l] = [];
+        // oddsvalues[l].push(chenil[l].odd);
+        // oddsvalues[l].push(chenil[l].odd);
     }
-    drawStats();
+    // drawStats();
     console.log('resetOddValues called');
 
 };

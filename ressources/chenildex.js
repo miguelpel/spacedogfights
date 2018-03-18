@@ -9,7 +9,7 @@ var chenildex = {
     },
     "Carl": {
         "image": "images/dogs/carlbio.png",
-        "bio": "Douglas is the most intelligent being in the universe. After discovering that intelligence doesn't pay, he decided to subscibe to space dog championships, and play the odds."
+        "bio": "!!!Douglas is the most intelligent being in the universe. After discovering that intelligence doesn't pay, he decided to subscibe to space dog championships, and play the odds."
     },
     "Prank": {
         "image": "images/dogs/prankbio.png",
@@ -17,7 +17,7 @@ var chenildex = {
     },
     "Zorgator": {
         "image": "images/dogs/zorgatorbio.png",
-        "bio": "Douglas is the most intelligent being in the universe. After discovering that intelligence doesn't pay, he decided to subscibe to space dog championships, and play the odds."
+        "bio": "!!!Douglas is the most intelligent being in the universe. After discovering that intelligence doesn't pay, he decided to subscibe to space dog championships, and play the odds."
     },
     "Pi": {
         "image": "images/dogs/pibio.png",
@@ -25,7 +25,7 @@ var chenildex = {
     },
     "Bbdah": {
         "image": "images/dogs/bbdahbio.png",
-        "bio": "Douglas is the most intelligent being in the universe. After discovering that intelligence doesn't pay, he decided to subscibe to space dog championships, and play the odds."
+        "bio": "!!!Douglas is the most intelligent being in the universe. After discovering that intelligence doesn't pay, he decided to subscibe to space dog championships, and play the odds."
     },
     "Chloe": {
         "image": "images/dogs/chloebio.png",
@@ -37,7 +37,7 @@ var chenildex = {
     },
     "Raptor": {
         "image": "images/dogs/raptorbio.png",
-        "bio": "Douglas is the most intelligent being in the universe. After discovering that intelligence doesn't pay, he decided to subscibe to space dog championships, and play the odds."
+        "bio": "He seems like a baby, but he actually is a full-grown dog from a planet of civilized dinausaurs, who put videos of beings like Raptor on the internet."
     },
     "Manu": {
         "image": "images/dogs/manubio.png",
@@ -49,7 +49,7 @@ var chenildex = {
     },
     "Alberd": {
         "image": "images/dogs/alberdbio.png",
-        "bio": "Douglas is the most intelligent being in the universe. After discovering that intelligence doesn't pay, he decided to subscibe to space dog championships, and play the odds."
+        "bio": "!!!Douglas is the most intelligent being in the universe. After discovering that intelligence doesn't pay, he decided to subscibe to space dog championships, and play the odds."
     },
     "Cedric": {
         "image": "images/dogs/cedricbio.png",

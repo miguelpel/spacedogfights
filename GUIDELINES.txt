@@ -1,0 +1,106 @@
+MatchCount: 1-indexed;
+matchList: 0-indexed;
+currentbet: 1-indexed!!!;
+closedBet: 1-indexed!!!!;
+
+min currentbet ALWAYS STRICTLY > closedbet.
+
+setpools()
+
+1 - MatchCount: 1,  matchList[0], min currentBet: 1, closedBet: 0
+1 - MatchCount: 1, matchList[0], min currentBet: 2, closedBet: 1;
+
+2 - MatchCount: 2,  matchList[1], min currentBet: 2, closedBet: 1;
+2 - MatchCount: 2, matchList[1], min currentBet: 3, closedBet: 2;
+
+3 - MatchCount: 3,  matchList[2], min currentBet: 3, closedBet: 2;
+3 - MatchCount: 3, matchList[2], min currentBet: 4, closedBet: 3;
+
+4 - MatchCount: 4,  matchList[3], min currentBet: 4, closedBet: 3;
+4 - MatchCount: 4, matchList[3], min currentBet: 5, closedBet: 4;
+
+5 - MatchCount: 5,  matchList[4], min currentBet: 5, closedBet: 4;
+5 - MatchCount: 5, matchList[4], min currentBet: 6, closedBet: 5;
+
+6 - MatchCount: 6,  matchList[5], min currentBet: 6, closedBet: 5;
+6 - MatchCount: 6, matchList[5], min currentBet: 7, closedBet: 6;
+
+find winner pool 1
+
+7 - MatchCount: 7,  matchList[6], min currentBet: 7, closedBet: 6;
+7 - MatchCount: 7, matchList[6], min currentBet: 8, closedBet: 7;
+
+8 - MatchCount: 8,  matchList[7], min currentBet: 8, closedBet: 7;
+8 - MatchCount: 8, matchList[7], min currentBet: 9, closedBet: 8;
+
+9 - MatchCount: 9,  matchList[8], min currentBet: 9, closedBet: 8;
+9 - MatchCount: 9, matchList[8], min currentBet: 10, closedBet: 9;
+
+10 - MatchCount: 10,  matchList[9], min currentBet: 10, closedBet: 9;
+10 - MatchCount: 10, matchList[9], min currentBet: 11, closedBet: 10;
+
+11 - MatchCount: 11,  matchList[10], min currentBet: 11, closedBet: 10;
+11 - MatchCount: 11, matchList[10], min currentBet: 12, closedBet: 11;
+
+12 - MatchCount: 12,  matchList[11], min currentBet: 12, closedBet: 11;
+12 - MatchCount: 12, matchList[11], min currentBet: 13, closedBet: 12;
+
+find winner pool 2
+set demi-final 1 (checkAddMatch())
+
+13 - MatchCount: 13,  matchList[12], min currentBet: 13, closedBet: 12;
+13 - MatchCount: 13, matchList[12], min currentBet: 14, closedBet: 13;
+
+14 - MatchCount: 14,  matchList[13], min currentBet: 14, closedBet: 13;
+14 - MatchCount: 14, matchList[13], min currentBet: 15, closedBet: 14;
+
+15 - MatchCount: 15,  matchList[14], min currentBet: 15, closedBet: 14;
+15 - MatchCount: 15, matchList[14], min currentBet: 16, closedBet: 15;
+
+16 - MatchCount: 16,  matchList[15], min currentBet: 16, closedBet: 15;
+16 - MatchCount: 16, matchList[15], min currentBet: 17, closedBet: 16;
+
+17 - MatchCount: 17,  matchList[16], min currentBet: 17, closedBet: 16;
+17 - MatchCount: 17, matchList[16], min currentBet: 18, closedBet: 17;
+
+18 - MatchCount: 18,  matchList[17], min currentBet: 18, closedBet: 17;
+18 - MatchCount: 18, matchList[17], min currentBet: 19, closedBet: 18;
+
+find winner pool 3
+
+19 - MatchCount: 19,  matchList[18], min currentBet: 19, closedBet: 18;
+19 - MatchCount: 19, matchList[18], min currentBet: 20, closedBet: 19;
+
+20 - MatchCount: 20,  matchList[19], min currentBet: 20, closedBet: 19;
+20 - MatchCount: 20, matchList[19], min currentBet: 21, closedBet: 20;
+
+21 - MatchCount: 21,  matchList[20], min currentBet: 21, closedBet: 20;
+21 - MatchCount: 21, matchList[20], min currentBet: 22, closedBet: 21;
+
+22 - MatchCount: 22,  matchList[21], min currentBet: 22, closedBet: 21;
+22 - MatchCount: 22, matchList[21], min currentBet: 23, closedBet: 22;
+
+23 - MatchCount: 23,  matchList[22], min currentBet: 23, closedBet: 22;
+23 - MatchCount: 23, matchList[22], min currentBet: 24, closedBet: 23;
+
+24 - MatchCount: 24,  matchList[23], min currentBet: 24, closedBet: 23;
+24 - MatchCount: 24, matchList[23], min currentBet: 25, closedBet: 24;
+
+find winner pool 4
+set demi-final 2
+
+25 - MatchCount: 25,  matchList[24], min currentBet: 25, closedBet: 24;
+25 - MatchCount: 25, matchList[24], min currentBet: 26, closedBet: 25;
+
+find winner demi-final 1
+
+26 - MatchCount: 26,  matchList[25], min currentBet: 26, closedBet: 25;
+26 - MatchCount: 26, matchList[25], min currentBet: 27 !!! but not accessible YET !!!, closedBet: 26;
+
+find winner demi-final 2
+set Final Match
+
+27 - MatchCount: 27,  matchList[26], min currentBet: 27, closedBet: 26;
+27 - MatchCount: 27, matchList[26], min currentBet: 28, closedBet: 27;
+
+reset championship
