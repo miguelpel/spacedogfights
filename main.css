@@ -4,8 +4,6 @@
 }
 
 body {
-    /*background: #1D412D;*/
-    height: 100vh;
     margin: 0;
     padding: 0;
     background-color: #1D412D;
@@ -66,14 +64,15 @@ body a {
 }
 
 #matchPlanning {
-    height: 4em;
+    margin: 0;
+    padding: 2px;
 }
 
 
 /* TEMPORAIRE, a précider */
 
 #arena {
-    height: 20em;
+    height: 22em;
     width: auto;
     /* max-width: 30rem; */
 }
