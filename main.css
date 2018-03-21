@@ -21,7 +21,6 @@ body {
     height: 100vh;
     width: auto;
     width: 500px;
-    /* background-color: #1D412D; */
 }
 
 .gameboy {
@@ -454,6 +453,7 @@ match is now clickable*/
 /* CONTROLLER */
 
 #controller {
+    position: relative;
     height: 32vh;
 }
 
@@ -536,6 +536,9 @@ button:active {
 }
 
 #money {
+    position: absolute;
+    bottom: 0;
+    width: 95%;
     margin: 10px 0 0 0;
     padding: 0;
 }
@@ -674,14 +677,14 @@ input::-webkit-inner-spin-button {
 
 /* Tablets (landscape) ------------------- */
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     /* Add Your CSS Styling Here */
 }
 
 
 /* Tablets (portrait) -------------------- */
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
     /* Add Your CSS Styling Here */
     #matchPlanning {
         font-size: 1em;
@@ -765,6 +768,9 @@ input::-webkit-inner-spin-button {
         font-size: 1rem;
         margin-bottom: 2px;
         margin-top: 0;
+    }
+    #money {
+        width: 93%;
     }
 }
 
