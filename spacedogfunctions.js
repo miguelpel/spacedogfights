@@ -321,7 +321,7 @@ function random(Dog) {
 };
 
 function displayMoney() {
-    document.getElementById('money').innerHTML = "Player's Money: " + playerMoney.toFixed(2) + " Kopecs<br>";
+    document.getElementById('money').innerHTML = "Money: " + playerMoney.toFixed(2) + " Kopecs<br>";
     if (playerMoney) document.getElementById('moneyBet').max = Math.round(playerMoney);
     else document.getElementById('moneyBet').max = 0;
 };

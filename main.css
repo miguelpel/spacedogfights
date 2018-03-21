@@ -15,14 +15,12 @@ body {
     display: flex;
     justify-content: center;
     overflow: hidden;
-    /*cursor: url(cursor.cur), auto;*/
 }
 
 .game-container {
     height: 100vh;
     width: auto;
-    max-width: 600px;
-    min-width: 400px;
+    width: 500px;
     /* background-color: #1D412D; */
 }
 
@@ -57,6 +55,9 @@ body {
     border-image: url(images/border_gb.png) 12 round;
 }
 
+
+/* for the intro screen */
+
 body a {
     margin: 0;
     padding: 2px;
@@ -65,22 +66,16 @@ body a {
     text-decoration: none;
 }
 
-.line {
-    height: 15px;
-    margin: 0 0 0 0;
-    background: url('images/line_gb.png');
-}
-
 #matchPlanning {
-    height: 8vh;
+    height: 4em;
 }
 
 
 /* TEMPORAIRE, a précider */
 
 #arena {
-    height: 45vh;
-    min-width: 50%;
+    height: 20em;
+    width: auto;
     /* max-width: 30rem; */
 }
 
@@ -90,12 +85,13 @@ body a {
 #match_page {
     color: #7dc53d;
     text-align: center;
+    position: relative;
     display: flex;
     height: 100%;
     width: 100%;
     background: url('images/arena/arena1.png') no-repeat;
     background-size: cover;
-    background-position: center;
+    background-position: center bottom;
 }
 
 #matchcomment {
@@ -282,6 +278,7 @@ match is now clickable*/
 
 #bets_page {
     width: 100%;
+    position: relative;
     margin: 0;
     padding: 0;
 }
@@ -293,6 +290,8 @@ match is now clickable*/
 }
 
 #winning {
+    position: absolute;
+    bottom: -10px;
     font-size: 0.8rem;
     width: 95%;
     height: 1rem;
@@ -461,10 +460,6 @@ match is now clickable*/
 
 /* i will supress this later, for now,
 it helps the javascript goes*/
-
-#currentBetDiv {
-    display: none;
-}
 
 #currentBetMatch {
     margin: 0;
@@ -688,6 +683,89 @@ input::-webkit-inner-spin-button {
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
     /* Add Your CSS Styling Here */
+    #matchPlanning {
+        font-size: 0.8em;
+        height: 4em;
+    }
+    .game-container {
+        width: 768px;
+    }
+    #arena {
+        height: 16em;
+        width: auto;
+    }
+    #matchcomment {
+        font-size: 0.8em;
+    }
+    .match_img {
+        position: absolute;
+        top: 45%;
+        margin-left: 10%;
+    }
+    .pool h3,
+    #demis-container {
+        font-size: 0.6rem;
+    }
+    .pool ul,
+    .pool li {
+        font-size: 0.5rem;
+    }
+    .final {
+        font-size: 0.8em;
+    }
+    #betJournal {
+        font-size: 0.6rem;
+        height: 28em;
+        padding-left: 2px;
+        margin: 0;
+        padding: 0;
+    }
+    #winning {
+        bottom: 0;
+        width: 93%;
+        font-size: 0.8rem;
+    }
+    #stats_page li,
+    #stats_page p {
+        font-size: 0.7em;
+    }
+    #stats_page p {
+        height: 2em;
+    }
+    .dogs_list li {
+        height: 3em;
+        margin: 2px 2px;
+        padding: 2px;
+        text-align: center;
+    }
+    .dogmodal {
+        font-size: 0.7em;
+    }
+    .dog-portrait {
+        height: 80px;
+        width: 120px;
+    }
+    #selector li {
+        font-size: 0.8rem;
+    }
+    #controller {
+        height: 29vh;
+    }
+    #currentBetMatch,
+    .currentBet,
+    .betdog,
+    .betbog p,
+    #currentMoneyBet,
+    #betdogname,
+    #money {
+        font-size: 0.8rem;
+        margin: 0;
+    }
+    button {
+        font-size: 0.8rem;
+        margin-bottom: 2px;
+        margin-top: 0;
+    }
 }
 
 
@@ -695,6 +773,90 @@ input::-webkit-inner-spin-button {
 
 @media only screen and (min-width: 321px) and (max-width: 767px) {
     /* Add Your CSS Styling Here */
+    #matchPlanning {
+        font-size: 0.8em;
+        height: 4em;
+    }
+    .game-container {
+        width: 375px;
+    }
+    #arena {
+        height: 16em;
+        width: auto;
+        /* max-width: 30rem; */
+    }
+    #matchcomment {
+        font-size: 0.8em;
+    }
+    .match_img {
+        position: absolute;
+        top: 45%;
+        margin-left: 10%;
+    }
+    .pool h3,
+    #demis-container {
+        font-size: 0.6rem;
+    }
+    .pool ul,
+    .pool li {
+        font-size: 0.5rem;
+    }
+    .final {
+        font-size: 0.8em;
+    }
+    #betJournal {
+        font-size: 0.6rem;
+        height: 28em;
+        padding-left: 2px;
+        margin: 0;
+        padding: 0;
+    }
+    #winning {
+        bottom: 0;
+        width: 93%;
+        font-size: 0.8rem;
+    }
+    #stats_page li,
+    #stats_page p {
+        font-size: 0.7em;
+    }
+    #stats_page p {
+        height: 2em;
+    }
+    .dogs_list li {
+        height: 3em;
+        margin: 2px 2px;
+        padding: 2px;
+        text-align: center;
+    }
+    .dogmodal {
+        font-size: 0.7em;
+    }
+    .dog-portrait {
+        height: 80px;
+        width: 120px;
+    }
+    #selector li {
+        font-size: 0.8rem;
+    }
+    #controller {
+        height: 29vh;
+    }
+    #currentBetMatch,
+    .currentBet,
+    .betdog,
+    .betbog p,
+    #currentMoneyBet,
+    #betdogname,
+    #money {
+        font-size: 0.8rem;
+        margin: 0;
+    }
+    button {
+        font-size: 0.8rem;
+        margin-bottom: 2px;
+        margin-top: 0;
+    }
 }
 
 
@@ -702,4 +864,90 @@ input::-webkit-inner-spin-button {
 
 @media only screen and (max-width: 320px) {
     /* Add Your CSS Styling Here */
+    #matchPlanning {
+        font-size: 0.6em;
+        height: 4em;
+    }
+    .game-container {
+        width: 320px;
+    }
+    #arena {
+        height: 16em;
+        width: auto;
+        /* max-width: 30rem; */
+    }
+    #matchcomment {
+        font-size: 0.8em;
+    }
+    .match_img {
+        position: absolute;
+        top: 45%;
+        margin-left: 7px;
+        margin-right: 7px;
+    }
+    .pool h3,
+    #demis-container {
+        font-size: 0.6rem;
+    }
+    .pool ul,
+    .pool li {
+        font-size: 0.5rem;
+    }
+    .final {
+        font-size: 0.8em;
+    }
+    #betJournal {
+        font-size: 0.6rem;
+        height: 25em;
+        padding-left: 2px;
+    }
+    #winning {
+        bottom: 0;
+        width: 92%;
+        font-size: 0.8rem;
+    }
+    #stats_page li,
+    #stats_page p {
+        font-size: 0.6em;
+    }
+    .dogs_list li {
+        height: 3em;
+        margin: 2px 2px;
+        padding: 2px;
+        text-align: center;
+    }
+    .dogmodal {
+        font-size: 0.6em;
+    }
+    .dog-portrait {
+        height: 80px;
+        width: 120px;
+    }
+    #selector li {
+        font-size: 0.8rem;
+    }
+    #controller {
+        height: 28vh;
+    }
+    #currentBetMatch,
+    .currentBet,
+    .betdog,
+    .betbog p,
+    #currentMoneyBet,
+    #betdogname,
+    #money {
+        font-size: 0.8rem;
+        margin: 0;
+    }
+    #range-subtitle {
+        float: left;
+        width: 50%;
+    }
+    button {
+        font-size: 0.8rem;
+        width: 56px;
+        height: 42px;
+        margin-bottom: 2px;
+        margin-top: 0;
+    }
 }
