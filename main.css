@@ -9,15 +9,15 @@ body {
     background-color: #1D412D;
     background: url('images/arena/arena3-791-480.png') no-repeat;
     background-size: cover;
+    min-height: 100vh;
     background-position: center bottom;
     display: flex;
     justify-content: center;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .game-container {
-    height: 100vh;
-    width: auto;
+    min-height: 100vh;
     width: 500px;
 }
 
@@ -55,13 +55,39 @@ body {
 
 /* for the intro screen */
 
-body a {
+.title-screen,
+.title-screen * {
     margin: 0;
-    padding: 2px;
+    padding: 0;
+}
+
+.title-screen {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    padding-left: 5px;
+    width: 500px;
+}
+
+.title-screen img {
+    align-self: center;
+    height: 10rem;
+    width: 14rem;
+}
+
+body a {
     align-self: center;
     height: 1rem;
-    text-decoration: none;
+    text-align: center;
+    padding: 0 10px;
 }
+
+
+/* March Planning */
 
 #matchPlanning {
     margin: 0;
@@ -455,10 +481,6 @@ match is now clickable*/
     position: relative;
     height: 32vh;
 }
-
-
-/* i will supress this later, for now,
-it helps the javascript goes*/
 
 #currentBetMatch {
     margin: 0;
