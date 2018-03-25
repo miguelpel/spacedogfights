@@ -1,5 +1,6 @@
 // Returns an array of 4 arrays containing 4 number between 0 and 15 shuffled.
 // returns the id number of the dogs
+
 function shufflePools() {
     // here are all the ids
     var range = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
@@ -322,7 +323,7 @@ function random(Dog) {
 };
 
 function displayMoney() {
-    document.getElementById('money').innerHTML = "Money: " + playerMoney.toFixed(2) + " Kopecs<br>";
+    document.getElementById('money').innerHTML = "Money: " + playerMoney.toFixed(2) + " Obols<br>";
     if (playerMoney) document.getElementById('moneyBet').max = Math.round(playerMoney);
     else document.getElementById('moneyBet').max = 0;
 };
@@ -365,7 +366,7 @@ function changeAmountHandler(event) {
 };
 
 function actualizeAmount() {
-    document.getElementById('currentMoneyBet').innerHTML = "Bet: " + amount + " Kopecs";
+    document.getElementById('currentMoneyBet').innerHTML = "Bet: " + amount + " Obols";
 };
 
 function placeBetOnDog(dog) {
@@ -424,7 +425,7 @@ function confirmBet() {
             // this id will help us to erase it
             // when the match is passed.
             entry.setAttribute("id", ("" + presentBet[1]));
-            var html = "Bet for Match: " + presentBet[1] + "// Winner: " + chenil[presentBet[2]].name + "// kopecs: " + presentBet[3] + " att odds: " + presentBet[4] + "<br>";
+            var html = "Bet for Match: " + presentBet[1] + "// Winner: " + chenil[presentBet[2]].name + "// Obols: " + presentBet[3] + " att odds: " + presentBet[4] + "<br>";
             entry.innerHTML = html;
             betJournal.appendChild(entry);
             console.log(entry.id);
@@ -443,7 +444,7 @@ function checkBets(matchNumber, winnerNumber) {
             var gain = (bets[i][3] * bets[i][4]);
             playerMoney += gain;
             // rajouter des lignes, des <p>
-            document.getElementById('winning').innerHTML = chenil[winnerNumber].name + " Wins!!! in match: " + matchNumber + " gain: " + gain;
+            document.getElementById('winning').innerHTML = chenil[winnerNumber].name + " Wins!!! in match: " + matchNumber + " gain: " + gain + " Obols";
         }
         // effacer les anciennes lignes
     };

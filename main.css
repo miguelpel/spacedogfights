@@ -3,6 +3,22 @@
     src: url(fonts/GameBoy.ttf);
 }
 
+* {
+    -webkit-touch-callout: none;
+    /* iOS Safari */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -457,10 +473,11 @@ match is now clickable*/
     /* Likely future */
 }
 
-#togglebtn_1 {
-    /*top: -1px;*/
-    /*left: -4px;*/
-}
+
+/* #togglebtn_1 {
+    top: -1px;
+    left: -4px;
+} */
 
 #togglebtn_2 {
     left: 25%;
@@ -781,13 +798,20 @@ input::-webkit-inner-spin-button {
     .betbog p,
     #currentMoneyBet,
     #betdogname,
-    #money {
+    #money,
+    #winning {
         font-size: 1rem;
         margin: 0;
     }
+    #range-subtitle {
+        float: left;
+        width: 50%;
+    }
     button {
-        font-size: 1rem;
-        margin-bottom: 2px;
+        font-size: 0.8rem;
+        width: 56px;
+        height: 42px;
+        margin-bottom: 5px;
         margin-top: 0;
     }
     #money {
@@ -875,13 +899,20 @@ input::-webkit-inner-spin-button {
     .betbog p,
     #currentMoneyBet,
     #betdogname,
-    #money {
+    #money,
+    #winning {
         font-size: 0.8rem;
         margin: 0;
     }
+    #range-subtitle {
+        float: left;
+        width: 50%;
+    }
     button {
         font-size: 0.8rem;
-        margin-bottom: 2px;
+        width: 56px;
+        height: 42px;
+        margin-bottom: 5px;
         margin-top: 0;
     }
 }
@@ -962,7 +993,8 @@ input::-webkit-inner-spin-button {
     .betbog p,
     #currentMoneyBet,
     #betdogname,
-    #money {
+    #money,
+    #winning {
         font-size: 0.8rem;
         margin: 0;
     }
@@ -974,7 +1006,7 @@ input::-webkit-inner-spin-button {
         font-size: 0.8rem;
         width: 56px;
         height: 42px;
-        margin-bottom: 2px;
+        margin-bottom: 5px;
         margin-top: 0;
     }
 }
