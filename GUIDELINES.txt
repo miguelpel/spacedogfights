@@ -1,7 +1,7 @@
 MatchCount: 1-indexed;
 matchList: 0-indexed;
-currentbet: 1-indexed!!!;
-closedBet: 1-indexed!!!!;
+currentbet: 1-indexed;
+closedBet: 1-indexed;
 
 min currentbet ALWAYS STRICTLY > closedbet.
 

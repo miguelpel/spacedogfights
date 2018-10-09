@@ -1,0 +1,311 @@
+/* Desktops ------------------ */
+
+@media only screen and (min-width: 1201px) {
+    /* Add Your CSS Styling Here */
+}
+
+
+/* Old Desktops and laptops ------------------ */
+
+@media only screen and (min-width: 1025px) {
+    /* Add Your CSS Styling Here */
+}
+
+
+/* Tablets (landscape) ------------------- */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    /* Add Your CSS Styling Here */
+}
+
+
+/* Tablets (portrait) -------------------- */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    /* Add Your CSS Styling Here */
+    #matchPlanning {
+        font-size: 1em;
+        height: 4em;
+    }
+    .game-container {
+        width: 768px;
+    }
+    #arena {
+        height: 32em;
+        width: auto;
+    }
+    #matchcomment {
+        font-size: 1em;
+    }
+    .match_img {
+        position: absolute;
+        top: 55%;
+        margin-left: 25%;
+    }
+    .pool h3,
+    #demis-container {
+        font-size: 1rem;
+    }
+    .pool ul,
+    .pool li {
+        font-size: 1rem;
+    }
+    .final {
+        font-size: 2em;
+    }
+    #betJournal {
+        font-size: 1rem;
+        height: 32em;
+        padding-left: 5px;
+        margin: 2px;
+        padding: 0;
+    }
+    #winning {
+        bottom: 0;
+        width: 93%;
+        font-size: 1rem;
+    }
+    #stats_page li,
+    #stats_page p {
+        font-size: 1em;
+    }
+    #stats_page p {
+        height: 2em;
+    }
+    .dogs_list li {
+        height: 3em;
+        margin: 2px 2px;
+        padding: 2px;
+        text-align: center;
+    }
+    .dogmodal {
+        font-size: 1em;
+    }
+    .dog-portrait {
+        height: 100px;
+        width: 140px;
+    }
+    #selector li {
+        font-size: 1rem;
+    }
+    #controller {
+        height: 40vh;
+    }
+    #currentBetMatch,
+    .currentBet,
+    .betdog,
+    .betbog p,
+    #currentMoneyBet,
+    #betdogname,
+    #money,
+    #winning {
+        font-size: 1rem;
+        margin: 0;
+    }
+    #range-subtitle {
+        float: left;
+        width: 50%;
+    }
+    button {
+        font-size: 0.8rem;
+        width: 56px;
+        height: 42px;
+        margin-bottom: 5px;
+        margin-top: 0;
+    }
+    #money {
+        width: 93%;
+    }
+}
+
+
+/* Smartphones (landscape) ---------------- */
+
+@media only screen and (min-width: 321px) and (max-width: 767px) {
+    /* Add Your CSS Styling Here */
+    #matchPlanning {
+        font-size: 0.8em;
+        height: 4em;
+    }
+    .game-container {
+        width: 375px;
+    }
+    #arena {
+        height: 16em;
+        width: auto;
+        /* max-width: 30rem; */
+    }
+    #matchcomment {
+        font-size: 0.8em;
+    }
+    .match_img {
+        position: absolute;
+        top: 45%;
+        margin-left: 10%;
+    }
+    .pool h3,
+    #demis-container {
+        font-size: 0.6rem;
+    }
+    .pool ul,
+    .pool li {
+        font-size: 0.5rem;
+    }
+    .final {
+        font-size: 0.8em;
+    }
+    #betJournal {
+        font-size: 0.6rem;
+        height: 28em;
+        padding-left: 2px;
+        margin: 0;
+        padding: 0;
+    }
+    #winning {
+        bottom: 0;
+        width: 93%;
+        font-size: 0.8rem;
+    }
+    #stats_page li,
+    #stats_page p {
+        font-size: 0.7em;
+    }
+    #stats_page p {
+        height: 2em;
+    }
+    .dogs_list li {
+        height: 3em;
+        margin: 2px 2px;
+        padding: 2px;
+        text-align: center;
+    }
+    .dogmodal {
+        font-size: 0.7em;
+    }
+    .dog-portrait {
+        height: 80px;
+        width: 120px;
+    }
+    #selector li {
+        font-size: 0.8rem;
+    }
+    #controller {
+        height: 29vh;
+    }
+    #currentBetMatch,
+    .currentBet,
+    .betdog,
+    .betbog p,
+    #currentMoneyBet,
+    #betdogname,
+    #money,
+    #winning {
+        font-size: 0.8rem;
+        margin: 0;
+    }
+    #range-subtitle {
+        float: left;
+        width: 50%;
+    }
+    button {
+        font-size: 0.8rem;
+        width: 56px;
+        height: 42px;
+        margin-bottom: 5px;
+        margin-top: 0;
+    }
+}
+
+
+/* Smartphones (portrait) ---------------- */
+
+@media only screen and (max-width: 320px) {
+    /* Add Your CSS Styling Here */
+    #matchPlanning {
+        font-size: 0.6em;
+        height: 4em;
+    }
+    .game-container {
+        width: 320px;
+    }
+    #arena {
+        height: 16em;
+        width: auto;
+        /* max-width: 30rem; */
+    }
+    #matchcomment {
+        font-size: 0.8em;
+    }
+    .match_img {
+        position: absolute;
+        top: 45%;
+        margin-left: 7px;
+        margin-right: 7px;
+    }
+    .pool h3,
+    #demis-container {
+        font-size: 0.6rem;
+    }
+    .pool ul,
+    .pool li {
+        font-size: 0.5rem;
+    }
+    .final {
+        font-size: 0.8em;
+    }
+    #betJournal {
+        font-size: 0.6rem;
+        height: 25em;
+        padding-left: 2px;
+    }
+    #winning {
+        bottom: 0;
+        width: 92%;
+        font-size: 0.8rem;
+    }
+    #stats_page li,
+    #stats_page p {
+        font-size: 0.6em;
+    }
+    .dogs_list li {
+        height: 3em;
+        margin: 2px 2px;
+        padding: 2px;
+        text-align: center;
+    }
+    .dogmodal {
+        font-size: 0.6em;
+    }
+    .dog-portrait {
+        height: 80px;
+        width: 120px;
+    }
+    #selector li {
+        font-size: 0.8rem;
+    }
+    #controller {
+        height: 28vh;
+    }
+    #currentBetMatch,
+    .currentBet,
+    .betdog,
+    .betbog p,
+    #currentMoneyBet,
+    #betdogname,
+    #money,
+    #winning {
+        font-size: 0.8rem;
+        margin: 0;
+    }
+    #range-subtitle {
+        float: left;
+        width: 50%;
+    }
+    button {
+        font-size: 0.8rem;
+        width: 56px;
+        height: 42px;
+        margin-bottom: 5px;
+        margin-top: 0;
+    }
+}

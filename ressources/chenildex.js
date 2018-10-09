@@ -1,7 +1,7 @@
 var chenildex = {
     "Douglas": {
         "image": "images/dogs/douglasbio.png",
-        "bio": "Douglas is the most intelligent being in the universe. After discovering that intelligence doesn't pay, he decided to subscibe to space dog championships, and play the odds."
+        "bio": "Douglas is the most intelligent being in the universe. After discovering that intelligence doesn't pay, he decided to participate in space dog championships, and play the odds"
     },
     "Mistie": {
         "image": "images/dogs/mistiebio.png",
@@ -9,7 +9,7 @@ var chenildex = {
     },
     "Carl": {
         "image": "images/dogs/carlbio.png",
-        "bio": "!!!Douglas is the most intelligent being in the universe. After discovering that intelligence doesn't pay, he decided to subscibe to space dog championships, and play the odds."
+        "bio": "'Carl' is a nickname. This thing comes from a planet where there's nothing similar to a language. There's nothing similar to a logic neither."
     },
     "Prank": {
         "image": "images/dogs/prankbio.png",
@@ -17,7 +17,7 @@ var chenildex = {
     },
     "Zorgator": {
         "image": "images/dogs/zorgatorbio.png",
-        "bio": "!!!Douglas is the most intelligent being in the universe. After discovering that intelligence doesn't pay, he decided to subscibe to space dog championships, and play the odds."
+        "bio": "Zorgator is a Space Superdog. No one knows his true identity."
     },
     "Pi": {
         "image": "images/dogs/pibio.png",
@@ -25,7 +25,7 @@ var chenildex = {
     },
     "Bbdah": {
         "image": "images/dogs/bbdahbio.png",
-        "bio": "!!!Douglas is the most intelligent being in the universe. After discovering that intelligence doesn't pay, he decided to subscibe to space dog championships, and play the odds."
+        "bio": "Bdah was non-violent, until one day he hit his little toe on the corner of his bed."
     },
     "Chloe": {
         "image": "images/dogs/chloebio.png",
