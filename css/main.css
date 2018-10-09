@@ -29,11 +29,11 @@ body {
     background-position: center bottom;
     display: flex;
     justify-content: center;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .game-container {
-    min-height: 100vh;
+    height: 100vh;
     width: 500px;
 }
 
