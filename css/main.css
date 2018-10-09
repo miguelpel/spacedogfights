@@ -29,7 +29,7 @@ body {
     background-position: center bottom;
     display: flex;
     justify-content: center;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .game-container {
@@ -382,8 +382,9 @@ match is now clickable*/
 .dogs_list li {
     border: 2px solid #1D412D;
     height: 2em;
-    margin: 5px 2px;
-    padding: 2px;
+    margin: 5px 3px;
+    padding: 3px;
+    padding-bottom: 10px;
     text-align: center;
 }
 
