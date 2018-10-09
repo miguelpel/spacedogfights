@@ -444,7 +444,7 @@ function checkBets(matchNumber, winnerNumber) {
             var gain = (bets[i][3] * bets[i][4]);
             playerMoney += gain;
             // rajouter des lignes, des <p>
-            document.getElementById('winning').innerHTML = chenil[winnerNumber].name + " Wins!!! in match: " + matchNumber + " gain: " + gain + " Obols";
+            document.getElementById('winning').innerHTML = chenil[winnerNumber].name + " Wins!!! in match: " + matchNumber + " gain: " + gain;
         }
         // effacer les anciennes lignes
     };
@@ -472,15 +472,15 @@ function checkProgress() {
         var gamegirls = document.querySelectorAll(".gamegirl");
         for (var i = 0; i < gameboys.length; i++) {
             //gameboys[i].style.backgroundColor = "#F3FF00";
-            gameboys[i].style.WebkitBorderImage = "url(images/border_gb_green_dark.png) 12 12 round";
-            gameboys[i].style.OBorderImage = "url(images/border_gb_green_dark.png) 12 12 round";
+            gameboys[i].style.WebkitBorderImage = "url(../images/border_gb_green_dark.png) 12 12 round";
+            gameboys[i].style.OBorderImage = "url(../images/border_gb_green_dark.png) 12 12 round";
             gameboys[i].style.borderImage = "url(images/border_gb_green_dark.png) 12 12 round";
         }
         for (var j = 0; j < gamegirls.length; j++) {
             //gamegirls[j].style.backgroundColor = "#F3FF00";
-            gamegirls[j].style.WebkitBorderImage = "url(images/border_gb_green.png) 12 12 round";
-            gamegirls[j].style.OBorderImage = "url(images/border_gb_green.png) 12 12 round";
-            gamegirls[j].style.borderImage = "url(images/border_gb_green.png) 12 12 round";
+            gamegirls[j].style.WebkitBorderImage = "url(../images/border_gb_green.png) 12 12 round";
+            gamegirls[j].style.OBorderImage = "url(../images/border_gb_green.png) 12 12 round";
+            gamegirls[j].style.borderImage = "url(../images/border_gb_green.png) 12 12 round";
         }
     }
     // Blue > 150
@@ -489,15 +489,15 @@ function checkProgress() {
         var gamegirls = document.querySelectorAll(".gamegirl");
         for (var i = 0; i < gameboys.length; i++) {
             //gameboys[i].style.backgroundColor = "#F3FF00";
-            gameboys[i].style.WebkitBorderImage = "url(images/border_gb_blue_dark.png) 12 12 round";
-            gameboys[i].style.OBorderImage = "url(images/border_gb_blue_dark.png) 12 12 round";
-            gameboys[i].style.borderImage = "url(images/border_gb_blue_dark.png) 12 12 round";
+            gameboys[i].style.WebkitBorderImage = "url(../images/border_gb_blue_dark.png) 12 12 round";
+            gameboys[i].style.OBorderImage = "url(../images/border_gb_blue_dark.png) 12 12 round";
+            gameboys[i].style.borderImage = "url(../images/border_gb_blue_dark.png) 12 12 round";
         }
         for (var j = 0; j < gamegirls.length; j++) {
             //gamegirls[j].style.backgroundColor = "#F3FF00";
-            gamegirls[j].style.WebkitBorderImage = "url(images/border_gb_blue.png) 12 12 round";
-            gamegirls[j].style.OBorderImage = "url(images/border_gb_blue.png) 12 12 round";
-            gamegirls[j].style.borderImage = "url(images/border_gb_blue.png) 12 12 round";
+            gamegirls[j].style.WebkitBorderImage = "url(../images/border_gb_blue.png) 12 12 round";
+            gamegirls[j].style.OBorderImage = "url(../images/border_gb_blue.png) 12 12 round";
+            gamegirls[j].style.borderImage = "url(../images/border_gb_blue.png) 12 12 round";
         }
     }
     // Violet > 200
@@ -506,15 +506,15 @@ function checkProgress() {
         var gamegirls = document.querySelectorAll(".gamegirl");
         for (var i = 0; i < gameboys.length; i++) {
             //gameboys[i].style.backgroundColor = "#F3FF00";
-            gameboys[i].style.WebkitBorderImage = "url(images/border_gb_violet_dark.png) 12 12 round";
-            gameboys[i].style.OBorderImage = "url(images/border_gb_violet_dark.png) 12 12 round";
-            gameboys[i].style.borderImage = "url(images/border_gb_violet_dark.png) 12 12 round";
+            gameboys[i].style.WebkitBorderImage = "url(../images/border_gb_violet_dark.png) 12 12 round";
+            gameboys[i].style.OBorderImage = "url(../images/border_gb_violet_dark.png) 12 12 round";
+            gameboys[i].style.borderImage = "url(../images/border_gb_violet_dark.png) 12 12 round";
         }
         for (var j = 0; j < gamegirls.length; j++) {
             //gamegirls[j].style.backgroundColor = "#F3FF00";
-            gamegirls[j].style.WebkitBorderImage = "url(images/border_gb_violet.png) 12 12 round";
-            gamegirls[j].style.OBorderImage = "url(images/border_gb_violet.png) 12 12 round";
-            gamegirls[j].style.borderImage = "url(images/border_gb_violet.png) 12 12 round";
+            gamegirls[j].style.WebkitBorderImage = "url(../images/border_gb_violet.png) 12 12 round";
+            gamegirls[j].style.OBorderImage = "url(../images/border_gb_violet.png) 12 12 round";
+            gamegirls[j].style.borderImage = "url(../images/border_gb_violet.png) 12 12 round";
         }
     }
     // Red > 400
@@ -523,15 +523,15 @@ function checkProgress() {
         var gamegirls = document.querySelectorAll(".gamegirl");
         for (var i = 0; i < gameboys.length; i++) {
             //gameboys[i].style.backgroundColor = "#F3FF00";
-            gameboys[i].style.WebkitBorderImage = "url(images/border_gb_red_dark.png) 12 12 round";
-            gameboys[i].style.OBorderImage = "url(images/border_gb_red_dark.png) 12 12 round";
-            gameboys[i].style.borderImage = "url(images/border_gb_red_dark.png) 12 12 round";
+            gameboys[i].style.WebkitBorderImage = "url(../images/border_gb_red_dark.png) 12 12 round";
+            gameboys[i].style.OBorderImage = "url(../images/border_gb_red_dark.png) 12 12 round";
+            gameboys[i].style.borderImage = "url(../images/border_gb_red_dark.png) 12 12 round";
         }
         for (var j = 0; j < gamegirls.length; j++) {
             //gamegirls[j].style.backgroundColor = "#F3FF00";
-            gamegirls[j].style.WebkitBorderImage = "url(images/border_gb_red.png) 12 12 round";
-            gamegirls[j].style.OBorderImage = "url(images/border_gb_red.png) 12 12 round";
-            gamegirls[j].style.borderImage = "url(images/border_gb_red.png) 12 12 round";
+            gamegirls[j].style.WebkitBorderImage = "url(../images/border_gb_red.png) 12 12 round";
+            gamegirls[j].style.OBorderImage = "url(../images/border_gb_red.png) 12 12 round";
+            gamegirls[j].style.borderImage = "url(../images/border_gb_red.png) 12 12 round";
         }
     }
 }
