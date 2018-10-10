@@ -442,7 +442,7 @@ function checkBets(matchNumber, winnerNumber) {
     for (var i = 0; i < bets.length; i++) {
         if (bets[i][1] == matchNumber && bets[i][2] == winnerNumber) {
             var gain = (bets[i][3] * bets[i][4]);
-            gain = gain.toFixed(2);
+            gain = Math.round(gain);
             playerMoney += gain;
             // rajouter des lignes, des <p>
             document.getElementById('winning').innerHTML = chenil[winnerNumber].name + " Wins!!! in match: " + matchNumber + " gain: " + gain;
